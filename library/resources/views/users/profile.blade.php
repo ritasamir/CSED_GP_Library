@@ -14,10 +14,14 @@
                             </div>
                             <div class="col-sm-9">
                                 <h1>{{$user->name}}</h1>
-                                <div class="row" style="padding-left: 25px">Email : {{$user->email}}</div>
-                                <div class="row" style="padding-left: 25px">Phone number :</div>
-                                <div class="row" style="padding-left: 25px">Department:</div>
-                                <div class="row" style="padding-left: 25px">Graduation Year :</div>
+                                <div class="row" style="padding-left: 25px"><strong style="padding-right: 10px">Email
+                                        :</strong> {{$user->email}}</div>
+                                <div class="row" style="padding-left: 25px"><strong style="padding-right: 10px">Phone
+                                        number :</strong> {{$user->phone_number}}</div>
+                                <div class="row" style="padding-left: 25px"><strong style="padding-right: 10px">Department
+                                        :</strong> {{$user->department}}</div>
+                                <div class="row" style="padding-left: 25px"><strong style="padding-right: 10px">Graduation
+                                        Year :</strong> {{$user->graduation_year}}</div>
                             </div>
                         </div>
 
