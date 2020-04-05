@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/posts/{post}', 'PostsController@show');
+Route::get('/posts/{id}', 'PostsController@show');
+Route::get('/comments/{id}', 'CommentsController@show');
+
 
 Auth::routes();
 
