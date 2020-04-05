@@ -7,12 +7,12 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    public function show($slug){
-    	$post = post::where('slug',$slug)->firstOrFail();
+    public function show($post)
+    {
 
-    	return view('welcome',[
-    		'post'=>$post
-    	]);
+        return view('home', [
+            'user' => auth()->user()
+        ]);
 
     }
 }

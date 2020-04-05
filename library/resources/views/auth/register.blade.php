@@ -1,23 +1,43 @@
 @extends('layouts.app')
 
+<script type="text/javascript">
+    window.onload = function () {
+        //Reference the DropDownList.
+        var ddlYears = document.getElementById("ddlYears");
+
+        //Determine the Current Year.
+        var currentYear = (new Date()).getFullYear();
+
+        //Loop and add the Year values to DropDownList.
+        for (var i = 1950; i <= currentYear; i++) {
+            var option = document.createElement("OPTION");
+            option.innerHTML = i;
+            option.value = i;
+            ddlYears.appendChild(option);
+        }
+    };
+</script>
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
 
                 <div class="card-body">
-                    <form  method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{route('register')}}">
                         @csrf
 
                         <div class="form-group row">
-                            <label style="margin-top: 100px;" for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label style="margin-top: 100px;" for="name"
+                                   class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input style="margin-top: 100px; id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input style="margin-top: 100px;" id="name" type="text"
+                                       class="form-control @error('name') is-invalid @enderror" name="name"
+                                       value="{{ old('name') }}" required autocomplete="name" autofocus/>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -25,13 +45,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email"
+                                   class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                       name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -39,10 +61,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password"
+                                   class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password"
+                                       class="form-control @error('password') is-invalid @enderror" name="password"
+                                       required autocomplete="new-password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -62,16 +87,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="gradution_year"
+                            <label for="graduation_year"
                                    class="col-md-4 col-form-label text-md-right">{{ __('Graduation Year') }}</label>
 
                             <div class="col-md-6">
-                                <input id="gradution_year" type="text"
-                                       class="form-control @error('graduation_year') is-invalid @enderror"
-                                       name="graduation year"
-                                       value="{{ old('graduation_year') }}" required autocomplete="graduation_year"
-                                       autofocus>
+                                <select id="graduation_year" name="graduation_year">
+                                    <?php
+                                    $years = array_combine(range(date("Y") + 4, 1950), range(date("Y") + 4, 1950));?>
+                                    @foreach($years as $year)
+                                        <option value="{{ $year }}">{{ $year }}</option>
+                                    @endforeach
 
+                                </select>
 
                             </div>
                         </div>
@@ -112,8 +139,8 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 @endsection
 @section('title')
-Signup
+    Signup
 @endsection

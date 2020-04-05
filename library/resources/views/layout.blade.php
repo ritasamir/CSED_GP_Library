@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="zxx">
-    
 
-<head>        
-        
-        <!-- Meta -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-        
-        <!-- Title -->
-        <title>..:: CSED GP LIBRARY  ::..</title>
-        
-        <!-- Favicon -->
-        <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-        
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        
-        <!-- Mobile Menu -->
-        <link href="css/mmenu.css" rel="stylesheet" type="text/css" />
-        <link href="css/mmenu.positioning.css" rel="stylesheet" type="text/css" />
-        
-        <!-- Stylesheet -->
-        <link href="style.css" rel="stylesheet" type="text/css" />
-        
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.min.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    
-    <body>
-        
-        <!-- Start: Header Section -->
-        <header id="header-v1" class="navbar-wrapper">
-            <div class="container">
-                <div class="row">
-                    <nav class="navbar navbar-default">
+
+<head>
+
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+
+    <!-- Title -->
+    <title>..:: CSED GP LIBRARY ::..</title>
+
+    <!-- Favicon -->
+    <link href="images/favicon.ico" rel="icon" type="image/x-icon"/>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i"
+        rel="stylesheet"/>
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Mobile Menu -->
+    <link href="../css/mmenu.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mmenu.positioning.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Stylesheet -->
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.min.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- Start: Header Section -->
+<header id="header-v1" class="navbar-wrapper">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="navbar-header">
@@ -242,22 +244,23 @@
             </div>
         </header>
         <!-- End: Header Section -->
-        
+
         <!-- Start: Slider Section -->
         <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
-            
+
             <!-- Carousel slides -->
             <div class="carousel-inner">
                 <div class="item active">
                     <figure>
-                        <img alt="Home Slide" src="images/header-slider/home-v1/header-slide.jpg" />
+                        <img alt="Home Slide" src="images/header-slider/home-v1/header-slide.jpg"/>
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
                             <h3>Online Learning Anytime, Anywhere!</h3>
                             <h2>Discover Your Roots</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">    
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form, by injected humor, or randomized words.</p>
+                            <div class="slide-buttons hidden-sm hidden-xs">
                                 <a href="#" class="btn btn-primary">Read More</a>
                                 <a href="#" class="btn btn-default">Purchase</a>
                             </div>
@@ -266,14 +269,15 @@
                 </div>
                 <div class="item">
                     <figure>
-                        <img alt="Home Slide" src="images/header-slider/home-v1/header-slide.jpg" />
+                        <img alt="Home Slide" src="images/header-slider/home-v1/header-slide.jpg"/>
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
                             <h3>Online Learning Anytime, Anywhere!</h3>
                             <h2>Discover Your Roots</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">    
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form, by injected humor, or randomized words.</p>
+                            <div class="slide-buttons hidden-sm hidden-xs">
                                 <a href="#" class="btn btn-primary">Read More</a>
                                 <a href="#" class="btn btn-default">Purchase</a>
                             </div>
@@ -282,14 +286,15 @@
                 </div>
                 <div class="item">
                     <figure>
-                        <img alt="Home Slide" src="images/header-slider/home-v1/header-slide.jpg" />
+                        <img alt="Home Slide" src="images/header-slider/home-v1/header-slide.jpg"/>
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
                             <h3>Online Learning Anytime, Anywhere!</h3>
                             <h2>Discover Your Roots</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">    
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form, by injected humor, or randomized words.</p>
+                            <div class="slide-buttons hidden-sm hidden-xs">
                                 <a href="#" class="btn btn-primary">Read More</a>
                                 <a href="#" class="btn btn-default">Purchase</a>
                             </div>
@@ -297,13 +302,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Controls -->
             <a class="left carousel-control" href="#home-v1-header-carousel" data-slide="prev"></a>
             <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
         </div>
         <!-- End: Slider Section -->
-        
+
         <!-- Start: Search Section -->
         <section class="search-filters">
             <div class="container">
@@ -350,8 +355,8 @@
             </div>
         </section>
         <!-- End: Search Section -->
-        
-        <!-- Start: Welcome Section -->
+
+<!-- Start: Welcome Section -->
         <section class="welcome-section">
             <div class="container">
                 <div class="row">
@@ -409,8 +414,8 @@
             <div class="welcome-image"></div>
         </section>
         <!-- End: Welcome Section -->
-        
-        <!-- Start: Category Filter -->
+
+<!-- Start: Category Filter -->
         <section class="category-filter section-padding">
             <div class="container">
                 <div class="center-content">
@@ -826,8 +831,8 @@
             </div>
         </section>
         <!-- Start: Category Filter -->
-        
-        <!-- Start: Features -->
+
+<!-- Start: Features -->
         <section class="features">
             <div class="container">
                 <ul>
@@ -895,8 +900,8 @@
             </div>
         </section>
         <!-- End: Features -->
-        
-        <!-- Start: Newsletter -->
+
+<!-- Start: Newsletter -->
         <section class="newsletter section-padding">
             <div class="container">
                 <div class="row">
@@ -915,8 +920,8 @@
             </div>
         </section>
         <!-- End: Newsletter -->
-        
-        <!-- Start: Meet Staff -->
+
+<!-- Start: Meet Staff -->
         <section class="team section-padding">
             <div class="container">
                 <div class="center-content">
@@ -1034,8 +1039,8 @@
             </div>
         </section>
         <!-- End: Meet Staff -->
-        
-        <!-- Start: Latest Blog -->
+
+<!-- Start: Latest Blog -->
         <section class="latest-blog section-padding banner">
             <div class="container">
                 <div class="center-content">
@@ -1372,8 +1377,8 @@
             </div>
         </section>
         <!-- End: Latest Blog -->
-        
-        <!-- Start: Our Community Section -->
+
+<!-- Start: Our Community Section -->
         <section class="community-testimonial">
             <div class="container">
                 <div class="text-center">
@@ -1610,8 +1615,8 @@
             </div>
         </section>
         <!-- End: Our Community Section -->
-        
-        <!-- Start: News & Event -->
+
+<!-- Start: News & Event -->
         <section class="news-events section-padding banner">
             <div class="container">
                 <div class="center-content">
@@ -1640,7 +1645,7 @@
                                     <li>
                                         <a href="#" target="_blank">
                                             <i class="fa fa-clock-o"></i>
-                                            10:15 AM - 10:15 PM 
+                                            10:15 AM - 10:15 PM
                                         </a>
                                     </li>
                                     <li>
@@ -1723,8 +1728,8 @@
             </div>
         </section>
         <!-- End: News & Event -->
-        
-        <!-- Start: Social Network -->
+
+<!-- Start: Social Network -->
         <section class="social-network section-padding">
             <div class="container">
                 <div class="center-content">
@@ -1779,8 +1784,8 @@
             </div>
         </section>
         <!-- End: Social Network -->
-        
-        <!-- Start: Footer -->
+
+<!-- Start: Footer -->
         <footer class="site-footer">
             <div class="container">
                 <div id="footer-widgets">
@@ -1839,7 +1844,7 @@
                                         <li><a href="#">Branches</a></li>
                                     </ul>
                                 </div>
-                            </div>          
+                            </div>
                         </div>
                         <div class="col-md-4 col-sm-6 widget-container">
                             <div class="widget twitter-widget">
@@ -1848,17 +1853,19 @@
                                 <div id="twitter-feed">
                                     <ul>
                                         <li>
-                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste
+                                                natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
                                         </li>
                                         <li>
-                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste
+                                                natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
                                         </li>
                                     </ul>
                                 </div>
-                            </div>          
+                            </div>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
             <div class="sub-footer">
                 <div class="container">
@@ -1882,60 +1889,60 @@
                 </div>
             </div>
         </footer>
-        <!-- End: Footer -->
-        
-        <!-- jQuery Latest Version 1.x -->
-        <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-        
-        <!-- jQuery UI -->
-        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-        
-        <!-- jQuery Easing -->
-        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<!-- End: Footer -->
 
-        <!-- Bootstrap -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        
-        <!-- Mobile Menu -->
-        <script type="text/javascript" src="js/mmenu.min.js"></script>
-        
-        <!-- Harvey - State manager for media queries -->
-        <script type="text/javascript" src="js/harvey.min.js"></script>
-        
-        <!-- Waypoints - Load Elements on View -->
-        <script type="text/javascript" src="js/waypoints.min.js"></script>
+<!-- jQuery Latest Version 1.x -->
+<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
 
-        <!-- Facts Counter -->
-        <script type="text/javascript" src="js/facts.counter.min.js"></script>
+<!-- jQuery UI -->
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
 
-        <!-- MixItUp - Category Filter -->
-        <script type="text/javascript" src="js/mixitup.min.js"></script>
+<!-- jQuery Easing -->
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
 
-        <!-- Owl Carousel -->
-        <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-        
-        <!-- Accordion -->
-        <script type="text/javascript" src="js/accordion.min.js"></script>
-        
-        <!-- Responsive Tabs -->
-        <script type="text/javascript" src="js/responsive.tabs.min.js"></script>
-        
-        <!-- Responsive Table -->
-        <script type="text/javascript" src="js/responsive.table.min.js"></script>
-        
-        <!-- Masonry -->
-        <script type="text/javascript" src="js/masonry.min.js"></script>
-        
-        <!-- Carousel Swipe -->
-        <script type="text/javascript" src="js/carousel.swipe.min.js"></script>
-        
-        <!-- bxSlider -->
-        <script type="text/javascript" src="js/bxslider.min.js"></script>
-        
-        <!-- Custom Scripts -->
-        <script type="text/javascript" src="js/main.js"></script>
-        
-    </body>
+<!-- Bootstrap -->
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<!-- Mobile Menu -->
+<script type="text/javascript" src="../js/mmenu.min.js"></script>
+
+<!-- Harvey - State manager for media queries -->
+<script type="text/javascript" src="../js/harvey.min.js"></script>
+
+<!-- Waypoints - Load Elements on View -->
+<script type="text/javascript" src="../js/waypoints.min.js"></script>
+
+<!-- Facts Counter -->
+<script type="text/javascript" src="../js/facts.counter.min.js"></script>
+
+<!-- MixItUp - Category Filter -->
+<script type="text/javascript" src="../js/mixitup.min.js"></script>
+
+<!-- Owl Carousel -->
+<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+
+<!-- Accordion -->
+<script type="text/javascript" src="../js/accordion.min.js"></script>
+
+<!-- Responsive Tabs -->
+<script type="text/javascript" src="../js/responsive.tabs.min.js"></script>
+
+<!-- Responsive Table -->
+<script type="text/javascript" src="../js/responsive.table.min.js"></script>
+
+<!-- Masonry -->
+<script type="text/javascript" src="../js/masonry.min.js"></script>
+
+<!-- Carousel Swipe -->
+<script type="text/javascript" src="../js/carousel.swipe.min.js"></script>
+
+<!-- bxSlider -->
+<script type="text/javascript" src="../js/bxslider.min.js"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="../js/main.js"></script>
+
+</body>
 
 
 </html>

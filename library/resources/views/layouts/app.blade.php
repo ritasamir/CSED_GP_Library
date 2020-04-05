@@ -1,147 +1,161 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zxx">
-    
-
-<head>        
-        
-        <!-- Meta -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-        
-        <!-- Title -->
-        <title>..:: CSED GP LIBRARY ::..</title>
-        
-        <!-- Favicon -->
-        <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-        
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        
-        <!-- Mobile Menu -->
-        <link href="css/mmenu.css" rel="stylesheet" type="text/css" />
-        <link href="css/mmenu.positioning.css" rel="stylesheet" type="text/css" />
-        
-        <!-- Stylesheet -->
-        <link href="style.css" rel="stylesheet" type="text/css" />
-        
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.min.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
-    </head>
 
 
-    <body>
-        
-        <!-- Start: Header Section -->
-        <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
-            <div class="container">
+<head>
+
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+
+    <!-- Title -->
+    <title>..:: CSED GP LIBRARY ::..</title>
+
+    <!-- Favicon -->
+    <link href="../images/favicon.ico" rel="icon" type="image/x-icon"/>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i"
+        rel="stylesheet"/>
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Mobile Menu -->
+    <link href="../css/mmenu.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mmenu.positioning.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Stylesheet -->
+    <link href="../style.css" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.min.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body>
+
+<!-- Start: Header Section -->
+<header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default">
                 <div class="row">
-                    <nav class="navbar navbar-default">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="navbar-header">
-                                    <div class="navbar-brand">
-                                        <h1>
-                                            <a href="index-2.html">
-                                                <img src="images/libraria-logo-v1.png" alt="LIBRARIA" />
-                                            </a>
-                                        </h1>
+                    <div class="col-md-3">
+                        <div class="navbar-header">
+                            <div class="navbar-brand">
+                                <h1>
+                                    <a href="index-2.html">
+                                        <img src="../images/libraria-logo-v1.png" alt="LIBRARIA"/>
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <!-- Header Topbar -->
+                        <div class="header-topbar hidden-sm hidden-xs">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="topbar-info">
+                                        <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
+                                        <span>/</span>
+                                        <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-9">
-                                <!-- Header Topbar -->
-                                <div class="header-topbar hidden-sm hidden-xs">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="topbar-info">
-                                                <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
-                                                <span>/</span>
-                                                <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="topbar-links">
-                                                 <div class="flex-center position-ref full-height">
-                    
-                    
-                        
-                        @guest
-                           
+                                <div class="col-sm-6">
+                                    <div class="topbar-links">
+                                        <div class="flex-center position-ref full-height">
+
+
+                                            @guest
+
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                           
+
                             @if (Route::has('register'))
-                              
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                               
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
 
-                                <div style="background-color:black;" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                                    <a class="nav-link"
+                                                       href="{{ route('register') }}">{{ __('Register') }}</a>
+
+                                                @endif
+                                            @else
+                                                <li class="nav-item dropdown">
+                                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                                                       role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                       aria-expanded="false" v-pre>
+                                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                                    </a>
+
+
+                                                    <div style="background-color:black; padding-left: 10px "
+                                                         class="dropdown-menu dropdown-menu-right "
+                                                         aria-labelledby="navbarDropdown">
+                                                        <a class="dropdown-item fa fa-btn fa-user"
+                                                           href="../profile">{{ __('    My Profile') }}</a>
+                                                        <br>
+
+                                                        <a class="dropdown-item fa fa-btn fa-sign-out"
+                                                           href="{{ route('logout') }}"
+                                                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                                            {{ __('Logout') }}
+                                                        </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                                                        <form id="logout-form" action="{{ route('logout') }}"
+                                                              method="POST" style="display: none;">
+                                                            @csrf
+                                                        </form>
+
+                                                    </div>
                             </li>
                         @endguest
                     </ul>
-                </div>
-            </div>
-       
+                                        </div>
+                                    </div>
 
-                                                         </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dropdown-menu cart-dropdown">
-                                                        <ul>
-                                                            <li class="clearfix">
-                                                                <img src="images/header-cart-image-01.jpg" alt="cart item" />
-                                                                <div class="item-info">
-                                                                    <div class="name">
-                                                                        <a href="#">The Great Gatsby</a>
-                                                                    </div>
-                                                                    <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
-                                                                    <div class="price">1 X $10.00</div>
-                                                                </div>
-                                                                <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                                            </li>
-                                                            <li class="clearfix">
-                                                                <img src="images/header-cart-image-02.jpg" alt="cart item" />
-                                                                <div class="item-info">
-                                                                    <div class="name">
-                                                                        <a href="#">The Great Gatsby</a>
-                                                                    </div>
-                                                                    <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
-                                                                    <div class="price">1 X $10.00</div>
-                                                                </div>
-                                                                <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                                            </li>
-                                                            <li class="clearfix">
-                                                                <img src="images/header-cart-image-03.jpg" alt="cart item" />
-                                                                <div class="item-info">
-                                                                    <div class="name">
-                                                                        <a href="#">The Great Gatsby</a>
-                                                                    </div>
-                                                                    <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
-                                                                    <div class="price">1 X $10.00</div>
-                                                                </div>
-                                                                <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                                            </li>
-                                                        </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu cart-dropdown">
+                            <ul>
+                                <li class="clearfix">
+                                    <img src="../images/header-cart-image-01.jpg" alt="cart item"/>
+                                    <div class="item-info">
+                                        <div class="name">
+                                            <a href="#">The Great Gatsby</a>
+                                        </div>
+                                        <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
+                                        <div class="price">1 X $10.00</div>
+                                    </div>
+                                    <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
+                                </li>
+                                <li class="clearfix">
+                                    <img src="../images/header-cart-image-02.jpg" alt="cart item"/>
+                                    <div class="item-info">
+                                        <div class="name">
+                                            <a href="#">The Great Gatsby</a>
+                                        </div>
+                                        <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
+                                        <div class="price">1 X $10.00</div>
+                                    </div>
+                                    <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
+                                </li>
+                                <li class="clearfix">
+                                    <img src="../images/header-cart-image-03.jpg" alt="cart item"/>
+                                    <div class="item-info">
+                                        <div class="name">
+                                            <a href="#">The Great Gatsby</a>
+                                        </div>
+                                        <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
+                                        <div class="price">1 X $10.00</div>
+                                    </div>
+                                    <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
+                                </li>
+                            </ul>
                                                         <div class="cart-total">
                                                             <div class="title">SubTotal</div>
                                                             <div class="price">$30.00</div>
@@ -264,8 +278,8 @@
             </div>
         </header>
         <!-- End: Header Section -->
-        
-        <!-- Start: Page Banner -->
+
+<!-- Start: Page Banner -->
         <section class="page-banner services-banner">
             <div class="container">
                 <div class="banner-header">
@@ -274,19 +288,19 @@
                     <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
                 </div>
                 <div class="breadcrumb">
-                    
-                        <li><a  href="{{ url('/') }}"> HOME
+
+                <li><a  href="{{ url('/') }}"> HOME
                 </a></li>
 
-                    
+
                 </div>
             </div>
         </section>
 
     <div id="app">
-        
 
-        <main class="py-4">
+
+    <main class="py-4">
             @yield('content')
         </main>
     </div>
@@ -345,8 +359,8 @@
             </div>
         </section>
         <!-- End: Social Network -->
-        
-        <!-- Start: Footer -->
+
+<!-- Start: Footer -->
         <footer class="site-footer">
             <div class="container">
                 <div id="footer-widgets">
@@ -405,7 +419,7 @@
                                         <li><a href="#">Branches</a></li>
                                     </ul>
                                 </div>
-                            </div>          
+                            </div>
                         </div>
                         <div class="col-md-4 col-sm-6 widget-container">
                             <div class="widget twitter-widget">
@@ -414,17 +428,19 @@
                                 <div id="twitter-feed">
                                     <ul>
                                         <li>
-                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste
+                                                natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
                                         </li>
                                         <li>
-                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste
+                                                natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
                                         </li>
                                     </ul>
                                 </div>
-                            </div>          
+                            </div>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
             <div class="sub-footer">
                 <div class="container">
@@ -448,57 +464,57 @@
                 </div>
             </div>
         </footer>
-        <!-- End: Footer -->
-        
-        <!-- jQuery Latest Version 1.x -->
-        <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-        
-        <!-- jQuery UI -->
-        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-        
-        <!-- jQuery Easing -->
-        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<!-- End: Footer -->
 
-        <!-- Bootstrap -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        
-        <!-- Mobile Menu -->
-        <script type="text/javascript" src="js/mmenu.min.js"></script>
-        
-        <!-- Harvey - State manager for media queries -->
-        <script type="text/javascript" src="js/harvey.min.js"></script>
-        
-        <!-- Waypoints - Load Elements on View -->
-        <script type="text/javascript" src="js/waypoints.min.js"></script>
+<!-- jQuery Latest Version 1.x -->
+<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
 
-        <!-- Facts Counter -->
-        <script type="text/javascript" src="js/facts.counter.min.js"></script>
+<!-- jQuery UI -->
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
 
-        <!-- MixItUp - Category Filter -->
-        <script type="text/javascript" src="js/mixitup.min.js"></script>
+<!-- jQuery Easing -->
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
 
-        <!-- Owl Carousel -->
-        <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-        
-        <!-- Accordion -->
-        <script type="text/javascript" src="js/accordion.min.js"></script>
-        
-        <!-- Responsive Tabs -->
-        <script type="text/javascript" src="js/responsive.tabs.min.js"></script>
-        
-        <!-- Responsive Table -->
-        <script type="text/javascript" src="js/responsive.table.min.js"></script>
-        
-        <!-- Masonry -->
-        <script type="text/javascript" src="js/masonry.min.js"></script>
-        
-        <!-- Carousel Swipe -->
-        <script type="text/javascript" src="js/carousel.swipe.min.js"></script>
-        
-        <!-- bxSlider -->
-        <script type="text/javascript" src="js/bxslider.min.js"></script>
-        
-        <!-- Custom Scripts -->
-        <script type="text/javascript" src="js/main.js"></script>
+<!-- Bootstrap -->
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<!-- Mobile Menu -->
+<script type="text/javascript" src="../js/mmenu.min.js"></script>
+
+<!-- Harvey - State manager for media queries -->
+<script type="text/javascript" src="../js/harvey.min.js"></script>
+
+<!-- Waypoints - Load Elements on View -->
+<script type="text/javascript" src="../js/waypoints.min.js"></script>
+
+<!-- Facts Counter -->
+<script type="text/javascript" src="../js/facts.counter.min.js"></script>
+
+<!-- MixItUp - Category Filter -->
+<script type="text/javascript" src="../js/mixitup.min.js"></script>
+
+<!-- Owl Carousel -->
+<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+
+<!-- Accordion -->
+<script type="text/javascript" src="../js/accordion.min.js"></script>
+
+<!-- Responsive Tabs -->
+<script type="text/javascript" src="../js/responsive.tabs.min.js"></script>
+
+<!-- Responsive Table -->
+<script type="text/javascript" src="../js/responsive.table.min.js"></script>
+
+<!-- Masonry -->
+<script type="text/javascript" src="../js/masonry.min.js"></script>
+
+<!-- Carousel Swipe -->
+<script type="text/javascript" src="../js/carousel.swipe.min.js"></script>
+
+<!-- bxSlider -->
+<script type="text/javascript" src="../js/bxslider.min.js"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="../js/main.js"></script>
 </body>
 </html>
