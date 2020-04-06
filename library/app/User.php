@@ -2,13 +2,13 @@
 
 namespace App;
 
+use App\Citation;
+use App\Comment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Comment;
-use App\Citation;
 
 class User extends Authenticatable
 {
@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'phone_number', 'graduation_year', 'department'
     ];
 
     /**
@@ -41,11 +41,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function comments(){
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function citations(){
+    public function citations()
+    {
         return $this->hasMany(Citation::class);
     }
 }

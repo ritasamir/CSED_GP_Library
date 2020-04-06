@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,9 @@ Route::get('/', function () {
 });
 Route::get('/posts/{id}', 'PostsController@show');
 Route::get('/comments/{id}', 'CommentsController@show');
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'UserController@show');
+Route::post('/profile', 'UserController@update_avatar');
+
