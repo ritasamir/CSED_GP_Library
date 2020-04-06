@@ -48,14 +48,18 @@
 
                         </div>
                         <div class="col-sm-9">
-                            <h1>{{$user->name}}</h1>
-                            <div class="row" style="padding-left: 25px"><strong style="padding-right: 10px">Email
+                            <h1 style="padding-bottom: 10px">{{$user->name}}</h1>
+                            <div class="row" style="padding-left: 25px;padding-bottom: 10px"><strong
+                                    style="padding-right: 10px">Email
                                     :</strong> {{$user->email}}</div>
-                            <div class="row" style="padding-left: 25px"><strong style="padding-right: 10px">Phone
+                            <div class="row" style="padding-left: 25px;padding-bottom: 10px"><strong
+                                    style="padding-right: 10px">Phone
                                     number :</strong> {{$user->phone_number}}</div>
-                            <div class="row" style="padding-left: 25px"><strong style="padding-right: 10px">Department
+                            <div class="row" style="padding-left: 25px;padding-bottom: 10px"><strong
+                                    style="padding-right: 10px">Department
                                     :</strong> {{$user->department}}</div>
-                            <div class="row" style="padding-left: 25px"><strong style="padding-right: 10px">Graduation
+                            <div class="row" style="padding-left: 25px;padding-bottom: 10px"><strong
+                                    style="padding-right: 10px">Graduation
                                     Year :</strong> {{$user->graduation_year}}</div>
                         </div>
                     </div>

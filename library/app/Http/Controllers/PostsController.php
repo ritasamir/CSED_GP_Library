@@ -7,12 +7,11 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    public function show($post)
+    public function show($id)
     {
-
-        return view('home', [
-            'user' => auth()->user()
+        $post = Post::where('id', $id)->firstOrFail();
+        return view('post', [
+            'post' => $post
         ]);
-
     }
 }
