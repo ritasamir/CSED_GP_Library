@@ -24,18 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('graduation_year');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-<<<<<<< HEAD
-            $table->string('national_id');
-            $table->string('department');
-            $table->string('avatar');
-            $table->boolean('isTS'); 
-            $table->boolean('verified'); 
-=======
             $table->boolean('isTS')->default('1');
             $table->boolean('verified')->default('1');
             $table->rememberToken();
             $table->timestamps();
->>>>>>> f8ba84849c0e253cd4b7bf65a2a014cb513e913a
         });
     }
 
