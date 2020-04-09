@@ -1,22 +1,26 @@
 @extends('layouts.post')
-@section('content')
+@section('postcontent')
 <div class="post">
     <p>
-    <h1 class="title">{{$post->title}}</h1>
+    <h1 style="color:saddlebrown;">{{$post->title}}</h1>
     </p>
+
     <div class="entry" style="display: inline-block;">
-        <h1>Abstract</h1>
-        <p style=" text-align:center; width:auto;">{{$post->abstract}}</p>
-        <h1>Fields</h1>
+        <h2 style="color:chocolate;padding-bottom:15px;">Abstract</h2>
+        <p style="width:auto;color:dimgray;">{{$post->abstract}}</p>
+        <h2 style="color:chocolate;padding-bottom:15px;">Fields</h2>
         <ul>
             @foreach($post->fields as $field)
-                <li><a href="#">{{$field-> fname}}</a></li>
+                <li><a href="#" style="color:dimgray;">{{$field-> fname}}</a></li>
             @endforeach
         </ul>
-        <p class="links"><a href="../{{$post->doc_url}}" target="_blank" rel="noopener noreferrer" class="button">Read
-                Full Document</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/comments/{{$post->id}}"
-                                                                class="button">Comments</a></p>
+        <p class="links">
+            <a href="https://{{$post->doc_url}}" target="_blank" rel="noopener noreferrer" style="background-color:chocolate;border-color:dimgray;" class="button">
+            Read Full Document
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/comments/{{$post->id}}" style="background-color:chocolate;border-color:dimgray;" class="button">Comments</a>
+        </p>
     </div>
     <p>
         <small style="float:right;">{{$post->created_at}}</small>
@@ -24,8 +28,4 @@
 
 </div>
 
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> f8ba84849c0e253cd4b7bf65a2a014cb513e913a

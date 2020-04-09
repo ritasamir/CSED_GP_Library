@@ -13605,7 +13605,7 @@ a:focus {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 400px;
+  min-height: 200px;
   position: relative;
   text-align: center;
 }
@@ -13644,7 +13644,8 @@ a:focus {
   background-image: url(images/page-banners/product-banner.jpg);
 }
 .page-banner.services-banner {
-  background-image: url(images/page-banners/services-banner.jpg);
+  /* background-image: url(images/page-banners/services-banner.jpg); */
+  background-image: url(images/banner1.jpg);
 }
 .page-banner.signin-banner {
   background-image: url(images/page-banners/signin-banner.jpg);

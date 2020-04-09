@@ -26,6 +26,7 @@
 
     <!-- Stylesheet -->
     <link href="../style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,326 +40,162 @@
 <body>
 
 <!-- Start: Header Section -->
-<header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
-    <div class="container">
-        <div class="row">
-            <nav class="navbar navbar-default">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="navbar-header">
-                            <div class="navbar-brand">
-                                <h1>
-                                    <a href="index-2.html">
-                                        <img src="../images/libraria-logo-v1.png" alt="LIBRARIA"/>
-                                    </a>
-                                </h1>
+<section class="page-banner services-banner">
+
+    <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper"> 
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-default">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="navbar-header">
+                                <div class="navbar-brand">
+                                    <h1>
+                                        <a href="index-2.html">
+                                            <img src="../images/libraria-logo-v1.png" alt="LIBRARIA"/>
+                                        </a>
+                                    </h1>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-9">
-                        <!-- Header Topbar -->
-                        <div class="header-topbar hidden-sm hidden-xs">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="topbar-info">
-                                        <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
-                                        <span>/</span>
-                                        <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
+                        <div class="col-md-9">
+                            <!-- Header Topbar -->
+                            <div class="header-topbar hidden-sm hidden-xs">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="topbar-info">
+                                            <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
+                                            <span>/</span>
+                                            <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="topbar-links">
-                                        <div class="flex-center position-ref full-height">
-
-
+                                    <div class="col-sm-6">
+                                        <div class="topbar-links">
+                                            <div class="flex-center position-ref full-height">
                                             @guest
-
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-
-                            @if (Route::has('register'))
-
-                                                    <a class="nav-link"
-                                                       href="{{ route('register') }}">{{ __('Register') }}</a>
-
-                                                @endif
+                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                            @if (Route::has('register'))
+                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            @endif
                                             @else
+                                            <ul>
                                                 <li class="nav-item dropdown">
-                                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
-                                                       role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                       aria-expanded="false" v-pre>
-                                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false" v-pre>
+                                                            {{ Auth::user()->name }} <span class="caret"></span>
                                                     </a>
-
-
-                                                    <div style="background-color:black; padding-left: 10px "
-                                                         class="dropdown-menu dropdown-menu-right "
-                                                         aria-labelledby="navbarDropdown">
-                                                        <a class="dropdown-item fa fa-btn fa-user"
-                                                           href="../profile">{{ __('    My Profile') }}</a>
-                                                        <br>
-
-                                                        <a class="dropdown-item fa fa-btn fa-sign-out"
-                                                           href="{{ route('logout') }}"
-                                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                            {{ __('Logout') }}
-                                                        </a>
-
-                                                        <form id="logout-form" action="{{ route('logout') }}"
-                                                              method="POST" style="display: none;">
-                                                            @csrf
-                                                        </form>
+                                                    <div style="background-color:black; padding-left: 10px " class="dropdown-menu dropdown-menu-right "
+                                                        aria-labelledby="navbarDropdown">
+                                                            <a class="dropdown-item fa fa-btn fa-user"
+                                                            href="../profile">{{ __('    My Profile') }}</a>
+                                                            <br>
+                                                            <a class="dropdown-item fa fa-btn fa-sign-out"
+                                                            href="{{ route('logout') }}"
+                                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                                {{ __('Logout') }}
+                                                            </a>
+                                                            <form id="logout-form" action="{{ route('logout') }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
 
                                                     </div>
-                            </li>
-                        @endguest
-                    </ul>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown-menu cart-dropdown">
-                            <ul>
-                                <li class="clearfix">
-                                    <img src="../images/header-cart-image-01.jpg" alt="cart item"/>
-                                    <div class="item-info">
-                                        <div class="name">
-                                            <a href="#">The Great Gatsby</a>
-                                        </div>
-                                        <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
-                                        <div class="price">1 X $10.00</div>
-                                    </div>
-                                    <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="../images/header-cart-image-02.jpg" alt="cart item"/>
-                                    <div class="item-info">
-                                        <div class="name">
-                                            <a href="#">The Great Gatsby</a>
-                                        </div>
-                                        <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
-                                        <div class="price">1 X $10.00</div>
-                                    </div>
-                                    <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="../images/header-cart-image-03.jpg" alt="cart item"/>
-                                    <div class="item-info">
-                                        <div class="name">
-                                            <a href="#">The Great Gatsby</a>
-                                        </div>
-                                        <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
-                                        <div class="price">1 X $10.00</div>
-                                    </div>
-                                    <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                </li>
-                            </ul>
-                                                        <div class="cart-total">
-                                                            <div class="title">SubTotal</div>
-                                                            <div class="price">$30.00</div>
-                                                        </div>
-                                                        <div class="cart-buttons">
-                                                            <a href="cart.html" class="btn btn-dark-gray">View Cart</a>
-                                                            <a href="checkout.html" class="btn btn-primary">Checkout</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </li>
+                                                @endguest
+                                            </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="navbar-collapse hidden-sm hidden-xs">
-                                    <ul class="nav navbar-nav">
-                                        <li class="dropdown active">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="index-2.html">Home</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="index-2.html">Home V1</a></li>
-                                                <li><a href="home-v2.html">Home V2</a></li>
-                                                <li><a href="home-v3.html">Home V3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Books &amp; Media</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
-                                                <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
-                                                <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
-                                                <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
-                                                <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
-                                                <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">Pages</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="signin.html">Signin/Register</a></li>
-                                                <li><a href="404.html">404/Error</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="blog.html">Blog Grid View</a></li>
-                                                <li><a href="blog-detail.html">Blog Detail</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                        <div class="mobile-menu hidden-lg hidden-md">
-                            <a href="#mobile-menu"><i class="fa fa-navicon"></i></a>
-                            <div id="mobile-menu">
-                                <ul>
-                                    <li class="mobile-title">
-                                        <h4>Navigation</h4>
-                                        <a href="#" class="close"></a>
+                        </div>  
+                    </div>
+                    <div class='row'>   
+                            <div class="navbar-collapse hidden-sm hidden-xs">
+                                    <ul class="nav navbar-nav">
+                                    <li class="dropdown active">
+                                        <a data-toggle="dropdown" class="dropdown-toggle disabled" href="/home">Home</a>
                                     </li>
-                                    <li>
-                                        <a href="index-2.html">Home</a>
-                                        <ul>
-                                            <li><a href="index-2.html">Home V1</a></li>
-                                            <li><a href="home-v2.html">Home V2</a></li>
-                                            <li><a href="home-v3.html">Home V3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="books-media-list-view.html">Books &amp; Media</a>
-                                        <ul>
-                                            <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
-                                            <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
-                                            <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
-                                            <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
-                                            <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="news-events-list-view.html">News &amp; Events</a>
-                                        <ul>
-                                            <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
-                                            <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Pages</a>
-                                        <ul>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="signin.html">Signin/Register</a></li>
-                                            <li><a href="404.html">404/Error</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="blog.html">Blog</a>
-                                        <ul>
+
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
+                                        <ul class="dropdown-menu">
                                             <li><a href="blog.html">Blog Grid View</a></li>
                                             <li><a href="blog-detail.html">Blog Detail</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="services.html">Services</a></li>
                                     <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
+                                    </ul>
+                            </div>         
+                    </div>  
+                    
+                </nav>
             </div>
-        </header>
-        <!-- End: Header Section -->
+        </div>
+    </header>
+    `<!-- End: Header Section -->
 
-<!-- Start: Page Banner -->
-        <section class="page-banner services-banner">
-            <div class="container">
+    <!-- Start: Page Banner -->
+        <!-- <div class="container">
                 <div class="banner-header">
-                    <h2>@yield ('title')</h2>
-                    <span class="underline center"></span>
-                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
-                </div>
-                <div class="breadcrumb">
+                <h2>@yield ('title')</h2>
+                <span class="underline center"></span>
+                <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+            </div> -->
+            <!-- <div class="breadcrumb">
+                <li><a  href="{{ url('/') }}"> HOME</a></li>
+            </div> 
+        </div> -->`
+</section>
 
-                <li><a  href="{{ url('/') }}"> HOME
-                </a></li>
-
-
-                </div>
-            </div>
-        </section>
-
-    <div id="app">
-
-
+<div id="app">
     <main class="py-4">
             @yield('content')
-        </main>
+    </main>
+</div>
+
+<!-- Start: Social Network -->
+<section class="social-network section-padding">
+    <div class="container">
+        <div class="center-content">
+            <h2 class="section-title">Follow Us</h2>
+            <span class="underline center"></span>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <ul>
+            <li>
+                <a class="facebook" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-facebook-f"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="twitter" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-twitter"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="google" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-google-plus"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="rss" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-rss"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
     </div>
-     <!-- Start: Social Network -->
-        <section class="social-network section-padding">
-            <div class="container">
-                <div class="center-content">
-                    <h2 class="section-title">Follow Us</h2>
-                    <span class="underline center"></span>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <ul>
-                    <li>
-                        <a class="facebook" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-facebook-f"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="twitter" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="google" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-google-plus"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="rss" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="linkedin" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-linkedin"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="youtube" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-youtube"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- End: Social Network -->
+</section>
+<!-- End: Social Network -->
 
 <!-- Start: Footer -->
         <footer class="site-footer">
