@@ -7,7 +7,7 @@
           <h1 style="color:saddlebrown;">{{$post->title}}</h1>
         </p>
     </div>
-    
+
     <div style="clear: both;">&nbsp;</div>
     <div class="container" style="padding:10px;">
     @foreach($comments as $comment)
@@ -37,7 +37,7 @@
             </div>
     @endforeach
     <p class="links">
-      <a href="/comments/{{$post->id}}/addNew"class="button" style="background-color:chocolate;color:black;">Add new Comment</a>
+      <a href="/comments/{{$post->id}}/create"class="button" style="background-color:chocolate;color:black;">Add new Comment</a>
     </p>
     </div>
 @endsection
