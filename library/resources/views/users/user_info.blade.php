@@ -61,7 +61,12 @@
                             <div class="row" style="padding-left: 25px;padding-bottom: 10px"><strong
                                     style="padding-right: 10px">Graduation
                                     Year :</strong> {{$user->graduation_year}}</div>
+                            <div class="row" style="padding-left: 25px;padding-bottom: 10px"><strong
+                                    style="padding-right: 10px">Role :</strong> {{($user->isTS) ? "Teaching Staff" : "Student"}}</div>
                         </div>
+                        @if($user->isTS)
+                        <a href="{{ url('/pendingPosts') }}"style="background-color: #ff7236;text-overflow: ellipsis;float: right" class="button">Pending Posts</a>
+                        @endif                        
                     </div>
 
                 </div>

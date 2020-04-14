@@ -18,8 +18,10 @@
             <a href="https://{{$post->doc_url}}" target="_blank" rel="noopener noreferrer" style="background-color:chocolate;border-color:dimgray;" class="button">
             Read Full Document
             </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+            @if($post->approved)
+            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;            
             <a href="/comments/{{$post->id}}" style="background-color:chocolate;border-color:dimgray;" class="button">Comments</a>
+            @endif
         </p>
     </div>
     <p>

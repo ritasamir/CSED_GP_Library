@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +26,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'UserController@show');
 Route::post('/profile', 'UserController@update_avatar');
+Route::get('/pendingPosts', 'PostsController@showUnapproved');
+Route::get('/pendingPostsapproving', 'PostsController@approvePost');
 
+Route::any('/search','HomeController@search');

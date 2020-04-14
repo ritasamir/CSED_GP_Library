@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use App\Postfield;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = Post::where('approved', 1)->latest()->get();
+        return view('home', [
+            'posts' => $posts
+        ]);
+    }
+    public function search (Request $request){
+        $q = $request->input('q');
+        $posts = Post::where('title','LIKE','%'.$q.'%')->orWhere('abstract','LIKE','%'.$q.'%')->get();
+        if(count($posts) > 0)
+            return view('/home', [
+                'posts' => $posts
+            ])->withMessage('The Search results for your query!')->withQuery ( $q );
+        else return view ('/home', [
+                'posts' => $posts
+            ])->withMessage('No Details found. Try to search again !');
     }
 }

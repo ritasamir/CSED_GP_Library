@@ -13,7 +13,7 @@ class UserController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $posts = $user->posts()->latest()->get();
+        $posts = $user->posts()->where('approved', 1)->latest()->get();
         return view('users.profile', [
             'user' => $user,
             'posts' => $posts,
