@@ -16,4 +16,22 @@ class PostsController extends Controller
             'post' => $post
         ]);
     }
+    public function showUnapproved()
+    {
+        $posts = Post::where('approved', 0)->get();
+        if ($posts->count() == 0){
+        	return view('pending_posts_empty');
+        }else {
+        return view('pending_posts', [
+            'posts' => $posts
+        ]);
+    	}
+    }
+     public function approvePost(Request $request)
+    {
+    	$id=$request->input('id');
+        $post = Post::where('id', $id)->update(['approved' => 1]);
+        
+    	return redirect()->back();
+    }
 }

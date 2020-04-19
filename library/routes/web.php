@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,4 +32,7 @@ Route::post('comments/{id}/create', 'CommentsController@store');
 
 Route::get('/profile', 'UserController@show');
 Route::post('/profile', 'UserController@update_avatar');
+Route::get('/pendingPosts', 'PostsController@showUnapproved');
+Route::get('/pendingPostsapproving', 'PostsController@approvePost');
 
+Route::any('/search','HomeController@search');
