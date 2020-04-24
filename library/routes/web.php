@@ -24,9 +24,11 @@ Route::get('/comments/{id}', 'CommentsController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'UserController@show');
-Route::post('/profile', 'UserController@update_avatar');
-Route::get('/pendingPosts', 'PostsController@showUnapproved');
-Route::get('/pendingPostsapproving', 'PostsController@approvePost');
+Route::get('/profile', 'UserController@show')->middleware('auth');
+Route::post('/profile', 'UserController@update_avatar')->middleware('auth');
+Route::get('/pendingPosts', 'PostsController@showUnapproved')->middleware('auth');
+Route::get('/pendingPostsapproving', 'PostsController@approvePost')->middleware('auth');
+Route::get('/pendingPostsdisapproving', 'PostsController@disapprovePost')->middleware('auth');
+Route::get('/notification', 'UserNotificationController@show')->middleware('auth');
 
 Route::any('/search','HomeController@search');

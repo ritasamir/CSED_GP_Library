@@ -35,7 +35,9 @@
                         </div>
 
                     </div>
-                     <a href="{{action('PostsController@approvePost', $parameters = array('id' => $post->id))}}" style="background-color: #ff7236;text-overflow: ellipsis;float: right" class="button"> approve </a>
+                     <a href="{{action('PostsController@approvePost', $parameters = array('id' => $post->id))}}" style="background-color: #ff7236;text-overflow: ellipsis;float: right; margin:5px;" class="button"> approve </a>
+
+                     <a href="{{action('PostsController@disapprovePost', $parameters = array('id' => $post->id))}}" style="background-color: #ff7236;text-overflow: ellipsis;float: right; margin:5px;" class="button"> disapprove </a>
 
                 </div>
             @endforeach

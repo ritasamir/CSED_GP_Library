@@ -78,8 +78,12 @@
                                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                             @endif
                                             @else
+                                            
                                             <ul>
+                                                
+
                                                 <li class="nav-item dropdown">
+                                                    
                                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                                     aria-expanded="false" v-pre>
                                                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -88,6 +92,11 @@
                                                         aria-labelledby="navbarDropdown">
                                                             <a class="dropdown-item fa fa-btn fa-user"
                                                             href="../profile">{{ __('    My Profile') }}</a>
+                                                            <br>
+                                                            <a class="dropdown-item fa fa-btn fa-user"
+                                                            href="/notification" >
+                                                                Notifications
+                                                            </a>
                                                             <br>
                                                             <a class="dropdown-item fa fa-btn fa-sign-out"
                                                             href="{{ route('logout') }}"
