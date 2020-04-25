@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/posts/{id}', 'PostsController@show');
-Route::get('/comments/{id}', 'CommentsController@show');
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'UserController@show');
 Route::post('/profile', 'UserController@update_avatar');
+
+Route::get('/posts/create', 'PostsController@create');
+Route::get('/posts/{id}', 'PostsController@show');
+Route::post('/posts', 'PostsController@store');
+Route::get('/comments/{id}', 'CommentsController@show');
+Auth::routes();
+
+
 

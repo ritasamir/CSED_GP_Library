@@ -4,16 +4,79 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use DB;
+
 use App\Postfield;
 use App\Citation;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostsController extends Controller
 {
     public function show($id)
     {
         $post = Post::where('id', $id)->firstOrFail();
-        return view('post', [
+        return view('posts.post', [
             'post' => $post
         ]);
+    }
+
+    public function create() {
+        
+        $fields = DB::select('SELECT DISTINCT fname FROM postfields');
+        // foreach($fields as $field){
+        //   dd($field->fname);
+        // }
+        return view('posts.create', [ 
+            'fields' => $fields,
+        ]);
+    }
+
+    public function store(Request $request) {
+        //create post
+        dd($request);
+        $user = Auth::user();
+        $post = Post::create([
+            'user_id' => $user->id,
+            'title' => $request->get('title'),
+            'abstract'  => $request->get('abstract'),
+            'doc_url' => $request->get('link'),
+            'approved' => '1'
+        ]); 
+       if($post)
+        {        
+            $fnames = explode(',',$request->get('fields'));
+            // $fieldnames = [];
+            // foreach($fnames as $fname)
+            // {
+
+            //     // $tag = App\Tag::firstOrCreate(['name'=>$tagName]);
+            //     // if($tag)
+            //     // {
+            //     //   $tagIds[] = $tag->id;
+            //     // }
+
+    
+            // }
+            $post->fields()->sync($fnames);
+            $avatar = $request->get('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('/images/posts/' . $filename));
+            $post->avatar = $avatar;
+        }
+        //store post
+        $post.save();
+        return redirect('/posts/{$post->id}');
+    }
+
+    public function edit(Post $post) {
+        
+    }
+    public function update(Request $request, Post $post) {
+        
+    }
+
+    public function destroy(Post $post) {
+        
     }
 }
