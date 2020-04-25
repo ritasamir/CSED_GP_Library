@@ -18,21 +18,21 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i"
         rel="stylesheet"/>
-    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
 
     <!-- Mobile Menu -->
-    <link href="../css/mmenu.css" rel="stylesheet" type="text/css"/>
-    <link href="../css/mmenu.positioning.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('css/mmenu.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('css/mmenu.positioning.css') }}" rel="stylesheet" type="text/css"/>
 
     <!-- Stylesheet -->
-    <link href="../style.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ asset('style.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="../js/html5shiv.min.js"></script>
-    <script src="../js/respond.min.js"></script>
+<!--[if lt IE 9]>
+    <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
     <![endif]-->
 </head>
 
@@ -42,7 +42,7 @@
 <!-- Start: Header Section -->
 <section class="page-banner services-banner">
 
-    <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper"> 
+    <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-default">
@@ -52,7 +52,7 @@
                                 <div class="navbar-brand">
                                     <h1>
                                         <a href="index-2.html">
-                                            <img src="../images/libraria-logo-v1.png" alt="LIBRARIA"/>
+                                            <img src="{{asset('images/libraria-logo-v1.png')}}" alt="LIBRARIA"/>
                                         </a>
                                     </h1>
                                 </div>
@@ -78,12 +78,12 @@
                                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                             @endif
                                             @else
-                                            
+
                                             <ul>
-                                                
+
 
                                                 <li class="nav-item dropdown">
-                                                    
+
                                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                                     aria-expanded="false" v-pre>
                                                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -117,28 +117,28 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
-                    <div class='row'>   
-                            <div class="navbar-collapse hidden-sm hidden-xs">
-                                    <ul class="nav navbar-nav">
-                                    <li class="dropdown active">
-                                        <a data-toggle="dropdown" class="dropdown-toggle disabled" href="/home">Home</a>
-                                    </li>
+                    <div class='row'>
+                        <div class="navbar-collapse hidden-sm hidden-xs">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown active">
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="/home">Home</a>
+                                </li>
 
-                                    <li class="dropdown">
-                                        <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog.html">Blog Grid View</a></li>
-                                            <li><a href="blog-detail.html">Blog Detail</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="blog.html">Blog Grid View</a></li>
+                                        <li><a href="blog-detail.html">Blog Detail</a></li>
                                     </ul>
-                            </div>         
-                    </div>  
-                    
+                                </li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </nav>
             </div>
         </div>
@@ -154,7 +154,7 @@
             </div> -->
             <!-- <div class="breadcrumb">
                 <li><a  href="{{ url('/') }}"> HOME</a></li>
-            </div> 
+            </div>
         </div> -->`
 </section>
 

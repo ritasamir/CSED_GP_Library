@@ -19,16 +19,25 @@ use App\Post;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/posts/{id}', 'PostsController@show');
-Route::get('/comments/{id}', 'CommentsController@show');
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'UserController@show')->middleware('auth');
-Route::post('/profile', 'UserController@update_avatar')->middleware('auth');
-Route::get('/pendingPosts', 'PostsController@showUnapproved')->middleware('auth');
-Route::get('/pendingPostsapproving', 'PostsController@approvePost')->middleware('auth');
+
+Route::get('/posts/{id}', 'PostsController@show');
+Route::post('/posts', 'PostsController@store');
+Route::get('/posts/create', 'PostsController@create');
+
+Route::get('/comments/{id}', 'CommentsController@show');
+Route::get('comments/{id}/create', 'CommentsController@create');
+Route::post('comments/{id}/create', 'CommentsController@store');
+
+Route::get('/profile', 'UserController@show');
+Route::post('/profile', 'UserController@update_avatar');
+Route::get('/pendingPosts', 'PostsController@showUnapproved');
+Route::get('/pendingPostsapproving', 'PostsController@approvePost');Route::get('/pendingPostsdisapproving', 'PostsController@disapprovePost')->middleware('auth');
 Route::get('/pendingPostsdisapproving', 'PostsController@disapprovePost')->middleware('auth');
 Route::get('/notification', 'UserNotificationController@show')->middleware('auth');
 
 Route::any('/search','HomeController@search');
+Auth::routes();
+
+
+

@@ -102,6 +102,7 @@
       <path value="$PROJECT_DIR$/library/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/library/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/library/vendor/intervention/image" />
+      <path value="" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

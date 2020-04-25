@@ -20,11 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('profile_img')->default("user.png");
             $table->string('department');
             $table->string('phone_number');
-//            $table->string('national_id')->default(null);
+            $table->string('national_id');
             $table->string('graduation_year');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('isTS')->default('1');
+            $table->boolean('isTS')->default("0");
             $table->boolean('verified')->default('1');
             $table->rememberToken();
             $table->timestamps();
