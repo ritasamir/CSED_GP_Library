@@ -22,6 +22,8 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/posts/{id}', 'PostsController@show');
+Route::post('/posts', 'PostsController@store');
+Route::get('/posts/create', 'PostsController@create');
 
 Route::get('/comments/{id}', 'CommentsController@show');
 Route::get('comments/{id}/create', 'CommentsController@create');
@@ -35,10 +37,6 @@ Route::get('/pendingPostsdisapproving', 'PostsController@disapprovePost')->middl
 Route::get('/notification', 'UserNotificationController@show')->middleware('auth');
 
 Route::any('/search','HomeController@search');
-Route::get('/posts/create', 'PostsController@create');
-Route::get('/posts/{id}', 'PostsController@show');
-Route::post('/posts', 'PostsController@store');
-Route::get('/comments/{id}', 'CommentsController@show');
 Auth::routes();
 
 
