@@ -18,8 +18,8 @@ class CreateCitationsTable extends Migration
             $table->integer('user_id')->unsigned();
         });
         Schema::table('citations', function(Blueprint $table){
-            $table->foreign('post_id')->references('id')->on('posts');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');;
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->primary(array('post_id', 'user_id'));
 
         });

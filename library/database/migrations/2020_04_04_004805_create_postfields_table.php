@@ -18,7 +18,7 @@ class CreatePostfieldsTable extends Migration
             $table->string('fname');
         });
         Schema::table('postfields', function(Blueprint $table) {
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->primary(array('fname', 'post_id'));
         });
     }

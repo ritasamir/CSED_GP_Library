@@ -19,7 +19,8 @@ use App\Post;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/posts/{id}', 'PostsController@show');
+Route::get('/comments/{id}', 'CommentsController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -33,6 +34,7 @@ Route::post('comments/{id}/create', 'CommentsController@store');
 Route::get('/profile', 'UserController@show');
 Route::post('/profile', 'UserController@update_avatar');
 Route::get('/pendingPosts', 'PostsController@showUnapproved');
-Route::get('/pendingPostsapproving', 'PostsController@approvePost');
+Route::get('/pendingPostsapproving', 'PostsController@approvePost');Route::get('/pendingPostsdisapproving', 'PostsController@disapprovePost')->middleware('auth');
+Route::get('/notification', 'UserNotificationController@show')->middleware('auth');
 
 Route::any('/search','HomeController@search');
