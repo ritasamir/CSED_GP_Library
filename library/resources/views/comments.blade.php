@@ -37,7 +37,7 @@
             </div>
     @endforeach
     <p class="links">
-      <a href="/comments/{{$post->id}}/create"class="button" style="background-color:chocolate;color:black;">Add new Comment</a>
+      <a href="/comments/{{$post->id}}/create" class="button" style="background-color:chocolate;color:black;">Add new Comment</a>
     </p>
     </div>
 @endsection

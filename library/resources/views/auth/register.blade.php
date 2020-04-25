@@ -103,20 +103,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
 
                             <div class="form-group row">
                                 <label style="margin-top: 100px;" for="isTS"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Teaching Staff') }}</label>
 
                                 <div class="col-md-6">
-                                    <label><input id="isTS" type="radio" style="margin-top: 100px;margin-right: 10px"
-                                                  name="isTS" value="1"> yes</label>
-                                    <label style="margin-left: 30px"><input id="isTS" type="radio"
+                                    <label><input id="radio1" type="radio" style="margin-top: 100px;margin-right: 10px"
+                                                  name="radio" value="1">Yes</label>
+                                    <label style="margin-left: 30px"><input id="radio2" type="radio"
                                                                             style="margin-top: 100px;margin-right: 10px"
-                                                                            name="isTS" value="0"> No</label>
+                                                                            name="radio" value="0"> No</label>
                                 </div>
                             </div>
+                            <br>
                             <div class="form-group row">
                                 <label for="graduation_year"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Graduation Year') }}</label>

@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'department' => $data['department'],
             'graduation_year' => $data['graduation_year'],
             'national_id' =>$data['national_id'],
-            'isTS' => $data['isTS'],
+            'isTS' => $data['radio'],
 
         ]);
     }

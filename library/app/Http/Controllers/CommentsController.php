@@ -31,7 +31,6 @@ class CommentsController extends Controller
 
     public function store($postId)
     {
-        echo(\request());
         $post = Post::where('id', $postId)->firstOrFail();
         try {
             $this->validate(request(), ['body' => 'required | min:2']);
@@ -39,6 +38,6 @@ class CommentsController extends Controller
             printf($e->getMessage());
         }
         $post->addComment(\request('body'));
-        return back();
+        return $this->show($postId);
     }
 }

@@ -65,7 +65,7 @@
                                                         <h3 class="entry-title"><a href="blog-detail.html">{{$post->title}}</a></h3>
                                                         <div class="entry-meta">
                                                             <span>
-                                                                @foreach($post->citations as $contributer)                            
+                                                                @foreach($post->citations as $contributer)
                                                                 <i class="fa fa-user"></i> <a href="#">{{explode(' ',trim($contributer->user->name))[0]}}</a>
                                                                 @endforeach
                                                             </span>
@@ -89,6 +89,6 @@
                     </div>
                 </main>
             </div>
-        
+
         <!-- End: Blog Section -->
 @endsection
