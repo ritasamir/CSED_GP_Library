@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Postfield;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,12 @@ class HomeController extends Controller
     }
     public function search (Request $request){
         $q = $request->input('q');
-        $posts = Post::where('title','LIKE','%'.$q.'%')->orWhere('abstract','LIKE','%'.$q.'%')->get();
+        $user = User::where('name','LIKE','%'.$q.'%')->first();
+        if($user){
+            $posts = $user->posts;
+        }else {
+            $posts = Post::where('title','LIKE','%'.$q.'%')->orWhere('abstract','LIKE','%'.$q.'%')->get();
+        }
         if(count($posts) > 0)
             return view('/home', [
                 'posts' => $posts
