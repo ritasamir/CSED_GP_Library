@@ -24,9 +24,13 @@ class CommentsController extends Controller
 
     public function create($postId)
     {
-        return view('add_comment', [
-            'id' => $postId
-        ]);
+        if(Auth::user()) {
+            return view('add_comment', [
+                'id' => $postId
+            ]);
+        }
+        return redirect('/login');
+    
     }
 
     public function store($postId)
@@ -35,7 +39,9 @@ class CommentsController extends Controller
         try {
             $this->validate(request(), ['body' => 'required | min:2']);
         } catch (ValidationException $e) {
-            printf($e->getMessage());
+            return redirect('/comments/'.$post->id.'/create')
+            ->withInput(request()->input())
+            ->withErrors(['body' => 'ERROR: Must enter a body!']);
         }
         $post->addComment(\request('body'));
         return $this->show($postId);

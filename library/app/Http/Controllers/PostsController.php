@@ -17,9 +17,15 @@ use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
+
+
+
     public function show($id)
     {
         $post = Post::where('id', $id)->firstOrFail();
+        if($post->approved == 0) {
+            return redirect()->back()->withError("This post is un-approved!");
+        }
         return view('posts.post', [
             'post' => $post,
         ]);
@@ -27,8 +33,16 @@ class PostsController extends Controller
 
     public function showUnapproved()
     {
-        $posts = Post::where('approved', 0)->get();
-        if ($posts->count() == 0) {
+        $user = Auth::user();
+        $citations = Citation::where('user_id', $user->id)->get();
+        $posts = array();
+        foreach($citations as $citation) {
+            $post = $citation->post;
+            array_push($posts, $post);
+        }
+
+        //$posts = Post::where('approved', 0)->get();
+        if (count($posts) == 0) {
             return view('pending_posts_empty');
         } else {
             if (Auth::user()->isTS) {
@@ -75,51 +89,96 @@ class PostsController extends Controller
 
     public function create()
     {
-
-        $fields = DB::select('SELECT * from fields');
-        return view('posts.create', [
-            'user' => Auth::user(),
-            'fields' => $fields
-        ]);
+        $user = Auth::user();
+        if($user) {
+            $fields = DB::select('SELECT * from fields');
+            return view('posts.create', [
+                'user' => Auth::user(),
+                'fields' => $fields
+            ]);
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function store(Request $request)
     {
+
         //create post
         $user = Auth::user();
+
         $avatar = $request->file('avatar');
-        $filename = time() . '.' . $avatar->getClientOriginalExtension();
-        Image::make($avatar)->resize(300, 300)->save(public_path('uploads/images/' . $filename));
+        if($avatar) {
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('/images/posts' . $filename));
+        }
+        $fields = $request->get('fields');
+
+        if(!$fields or !$request->get('title') or  !$request->get('link')or  !$request->get('abstract')) {
+            return redirect('/posts')
+            ->withInput($request->input())
+            ->withErrors(['fields' => 'ERROR: Must enter fields!']);
+        }
         $post = Post::create([
             'user_id' => $user->id,
             'title' => $request->get('title'),
-            'avatar' => $filename,
+            'avatar' => $avatar? $filename : 'post1.png',
             'abstract' => $request->get('abstract'),
             'doc_url' => $request->get('link'),
             'approved' => $user->isTS == '0' ? '0' : '1',
         ]);
-        Citation::create([
-            'post_id' => $post->id,
-            'user_id' => $user->id
-        ]);
+
+        $availableTS = 0;
         if ($post) {
             $collaborators = $request->get('collaborators');
-            $fields = $request->get('fields');
+            //check atleast one TS
+            if($user->isTS) {
+                $availableTS = 1;
+            }
+           
+            $user_ids =  array();
+            array_push($user_ids, $user->id);
             foreach ($collaborators as $collaborator) {
                 $user_s = User::where('name', $collaborator)->first();
-                Citation::create([
-                    'post_id' => $post->id,
-                    'user_id' => $user_s->id
-                ]);
+                //check if user exist
+                if($user_s) {
+                    if($user_s->isTS) {
+                        $availableTS = 1;
+                    }
+                    array_push($user_ids, $user_s->id);
+                    // Citation::create([
+                    //     'post_id' => $post->id,
+                    //     'user_id' => $user_s->id
+                    // ]);
+                }
             }
-            $post->fields()->attach($fields);
+            if($availableTS == 1) {
+                foreach($user_ids as $user_id) {
+                    Citation::create([
+                        'post_id' => $post->id,
+                        'user_id' => $user_id
+                    ]);
+                }
+
+                $post->fields()->attach($fields);      
+                if ($post->approved == '1')
+                   return $this->show($post->id);
+                else {
+                   return $this->showUnapproved();
+                }                
+            } 
+           
+        } else {
+            Post::destroy($post->id);
+            return redirect('/posts')
+            ->withInput($request->input())
+            ->withErrors('Error in inputs');        
         }
-        //store post
-        if ($post->approved == '1')
-            return $this->show($post->id);
-        else {
-            return $this->showUnapproved();
-        }
+        Post::destroy($post->id);
+        return redirect('/posts')
+        ->withInput($request->input())
+        ->withErrors(['collabrators' => 'ERROR: User doesn not exist!']);
+ 
     }
 
     public function edit(Post $post)

@@ -20,6 +20,6 @@ class Citation extends Model
 
     public function post()
     {
-        return $this->belongsTo(Pots::class);
+        return $this->belongsTo(Post::class);
     }
 }

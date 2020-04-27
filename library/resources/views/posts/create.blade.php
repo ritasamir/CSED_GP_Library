@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+       
 
             <h1 class="center-content" style="margin-top: 50px">Add new Post</h1>
 
@@ -75,6 +76,11 @@
                             <div class="row ">
                             </div>
                         </div>
+                        @error('collabrators')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
                     </div>
                     <br>
                     <br>
@@ -151,7 +157,7 @@
                 html = '<div class="row collaborator-row">\n' +
                     '                                <div class="col-md-4">\n' +
                     '                                    <input id="collaborators" type="text" class="form-control"\n' +
-                    ' name="collaborators[]" required autocomplete="collaborators">' +
+                    ' name="collaborators[]"  autocomplete="collaborators">' +
                     '                                </div>'
                 if (numberC > 1) {
                     html += '<div class="col-md-2">\n' +
