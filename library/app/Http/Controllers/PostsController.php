@@ -38,10 +38,11 @@ class PostsController extends Controller
         $posts = array();
         foreach($citations as $citation) {
             $post = $citation->post;
-            array_push($posts, $post);
+            if($post->approved == 0){
+                 array_push($posts, $post);
+            }
         }
 
-        //$posts = Post::where('approved', 0)->get();
         if (count($posts) == 0) {
             return view('pending_posts_empty');
         } else {
