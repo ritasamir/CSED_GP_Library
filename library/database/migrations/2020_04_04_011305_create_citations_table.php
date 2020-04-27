@@ -16,8 +16,9 @@ class CreateCitationsTable extends Migration
         Schema::create('citations', function (Blueprint $table) {
             $table->integer('post_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->timestamps();
         });
-        Schema::table('citations', function(Blueprint $table){
+        Schema::table('citations', function (Blueprint $table) {
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');;
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->primary(array('post_id', 'user_id'));

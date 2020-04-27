@@ -15,7 +15,7 @@ Released   : 20130121
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    
+
     <title>{{ $post->title }}</title> -->
     <!-- Favicon -->
     <!-- <link href="../images/favicon.ico" rel="icon" type="image/x-icon"/> -->
@@ -39,7 +39,7 @@ Released   : 20130121
 <!-- <body> -->
 <!-- Start: Header Section -->
 <!-- <section class="page-banner services-banner">
-    <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper"> 
+    <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-default">
@@ -105,9 +105,9 @@ Released   : 20130121
                                     </div>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
-                    <div class='row'>   
+                    <div class='row'>
                             <div class="navbar-collapse hidden-sm hidden-xs">
                                     <ul class="nav navbar-nav">
                                     <li class="dropdown active">
@@ -124,14 +124,14 @@ Released   : 20130121
                                     <li><a href="services.html">Services</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                     </ul>
-                            </div>         
-                    </div>  
-                    
+                            </div>
+                    </div>
+
                 </nav>
             </div>
         </div>
     </header>
-</section> --> 
+</section> -->
 @extends('layouts.app')
 @section('content')
 
@@ -149,7 +149,7 @@ Released   : 20130121
                         <div id="sidebar" style="float:left;">
                             <ul>
                                 <li>
-                                    <img src="/images/posts/{{$post->avatar}}"
+                                    <img src="/uploads/images/{{$post->avatar}}"
                                         style="width:260px; height:200px;padding-left:9px;">
                                     <div style="clear: both;">&nbsp;</div>
                                 </li>

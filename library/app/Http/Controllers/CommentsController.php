@@ -15,7 +15,7 @@ class CommentsController extends Controller
     {
         $comments = Comment::where('post_id', $postID)->get();
         $post = Post::where('id', $postID)->firstOrFail();
-        return view('comments', [
+        return view('posts.comments', [
             'post' => $post,
             'comments' => $comments
         ]);

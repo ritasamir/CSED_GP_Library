@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('/users/user_info')
 
     <div class="container">
+        <h1 class=" error-info center-content" style="margin: 20px"> Posts Waiting to be approved</h1>
         <div class="col-md-10" style="padding-left: 50px">
 
             @foreach($posts as $post)
                 <div class="row " style="padding-top: 20px">
 
                     <div class="col-sm-3">
-                        <img src="images/posts/{{$post->avatar}}" style="border-radius: 50%" alt="project">
+                        <img src="uploads/images/{{$post->avatar}}" style="border-radius: 50%" alt="project">
                     </div>
 
                     <div class="col-sm-9">
@@ -22,7 +22,7 @@
                             <div
                                 style="height:35px;overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;">{{$post->abstract}}</div>
 
-                            <a href="posts/{{$post->id}}" style="color: #ff7236"> see more..</a>
+                            <a href="/posts/{{$post->id}}" style="color: #ff7236"> see more..</a>
                         </div>
 
                         <div style="padding-top: 10px">
@@ -37,12 +37,9 @@
 
                     </div>
 
-
                 </div>
             @endforeach
-        <p class="links" style="position:absolute;left:50%;">
-               <a href="/posts" class="button" style="background-color:chocolate;color:black;">Add new Post</a>
-        </p>
+
         </div>
     </div>
 

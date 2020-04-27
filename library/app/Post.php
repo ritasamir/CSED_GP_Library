@@ -4,18 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Comment;
-use App\Postfield;
 use App\Citation;
 use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
+    protected $fillable = [
+        'user_id', 'title', 'abstract', 'doc_url', 'approved','avatar'
+    ];
     public function comments(){
         return $this->hasMany(Comment::class);
     }
 
     public function fields(){
-        return $this->hasMany(PostField::class);
+        return $this->belongsToMany(Field::class);
     }
     public function citations(){
         return $this->hasMany(Citation::class);
@@ -26,5 +28,6 @@ class Post extends Model
             'body'=>$body
         ]);
     }
+
 
 }
