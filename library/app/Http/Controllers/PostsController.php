@@ -69,6 +69,9 @@ class PostsController extends Controller
         foreach ($post->citations as $citation) {
             $status = 'approved';
             $citation->user->notify(new postApproved($status, $id));
+            if (! $post->followers()->syncWithoutDetaching([$citation->user['id']])) {
+                 $post->followers()->attach($citation->user['id']);
+            }
         }
 
         return redirect()->back();
@@ -159,6 +162,11 @@ class PostsController extends Controller
                         'post_id' => $post->id,
                         'user_id' => $user_id
                     ]);
+                    if ($post->approved == '1') {
+                        if (! $post->followers()->syncWithoutDetaching([$user_id])) {
+                             $post->followers()->attach($user_id);
+                        }
+                    }
                 }
 
                 $post->fields()->attach($fields);      

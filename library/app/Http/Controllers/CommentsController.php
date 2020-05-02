@@ -7,7 +7,8 @@ use App\Comment;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
-
+use Illuminate\support\Facades\Notification;
+use App\Notifications\commentNotification;
 
 class CommentsController extends Controller
 {
@@ -44,6 +45,11 @@ class CommentsController extends Controller
             ->withErrors(['body' => 'ERROR: Must enter a body!']);
         }
         $post->addComment(\request('body'));
+        $followers = $post->followers->except(Auth::id());
+        foreach ( $followers as $follower) {
+            $status = 'addComment';
+            $follower->notify(new commentNotification($status,$postId,Auth::user()->name));
+        }
         return $this->show($postId);
     }
 }

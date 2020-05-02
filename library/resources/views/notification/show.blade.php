@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
        
-        
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
             <div class="cart-main">
@@ -28,18 +26,24 @@
             									<a href="/notification" action="{{$notificationsNotRead->markAsRead()}}" style="background-color: #ff7236;text-overflow: ellipsis;" class="button"> markAsRead </a>
             									@forelse($notificationsNotRead as $notification)
 									            	@if($notification->data['status']=='approved')
-									            	<div class="row" style="padding-left: 25px;padding-bottom: 10px">
+									            	<div class="row" style="padding-top: 25px;padding-bottom: 10px">
 									            		<li><a href="#" style="color:dimgray;">Congratulation ! your post {{$notification->data['post']['title']}} has been approved</a>
 									            		</li>
 									            	</div>
 									            	
 									            	@endif
 									            	@if($notification->data['status']=='disapproved')
-									            	<div class="row" style="padding-left: 25px;padding-bottom: 10px">
+									            	<div class="row" style="padding-top: 25px;padding-bottom: 10px">
 									            	<li><a href="#" style="color:dimgray;">Sorry ! your post {{$notification->data['post']['title']}} has been disapproved</a>
 									            	</li>
 									            </div>
 									            	@endif
+                                                    @if($notification->data['status']=='addComment')
+                                                    <div class="row" style="padding-top: 25px;padding-bottom: 10px">
+                                                    <li><a href="{{ url('/posts',$notification->data['postId']) }}"  style="color:dimgray;">{{$notification->data['userName']}} commented on {{$notification->data['postTitle']}}  post.</a>
+                                                    </li>
+                                                </div>
+                                                    @endif
 									            @empty
 									            <p style ="padding-top:10px;"">There are no notifications yet </p>
 									            @endforelse
@@ -47,18 +51,24 @@
                                             <div id="sectionB" class="tab-pane fade in">
                                                 @forelse($notificationsRead as $notification)
 									            	@if($notification->data['status']=='approved')
-									            	<div class="row" style="padding-left: 25px;padding-bottom: 10px">
+									            	<div class="row" style="padding-top: 25px;padding-bottom: 10px">
 									            		<li><a href="#" style="color:dimgray;">Congratulation ! your post {{$notification->data['post']['title']}} has been approved</a>
 									            		</li>
 									            	</div>
 									            	
 									            	@endif
 									            	@if($notification->data['status']=='disapproved')
-									            	<div class="row" style="padding-left: 25px;padding-bottom: 10px">
+									            	<div class="row" style="padding-top: 25px;padding-bottom: 10px">
 									            	<li><a href="#" style="color:dimgray;">Sorry ! your post {{$notification->data['post']['title']}} has been disapproved</a>
 									            	</li>
-									            </div>
+									                </div>
 									            	@endif
+                                                    @if($notification->data['status']=='addComment')
+                                                    <div class="row" style="padding-top: 25px;padding-bottom: 10px">
+                                                    <li><a href="{{ url('/posts',$notification->data['postId']) }}"  style="color:dimgray;">{{$notification->data['userName']}} commented on {{$notification->data['postTitle']}}  post.</a>
+                                                    </li>
+                                                    </div>
+                                                    @endif
 									            @empty
 									            <p style ="padding-top:10px;"">There are no notifications yet </p>
 									            @endforelse
@@ -67,7 +77,7 @@
                                             
                                         </div>
                                     </div>
-                                </div><!-- .entry-content -->
+                                </div>
                             </div>
                         </div>
                     </div>
