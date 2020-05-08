@@ -43,7 +43,6 @@
 
 <!-- Start: Header Section -->
 <section class="page-banner services-banner">
-
     <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
         <div class="container">
             <div class="row">
@@ -53,8 +52,9 @@
                             <div class="navbar-header">
                                 <div class="navbar-brand">
                                     <h1>
-                                        <a href="index-2.html">
-                                            <img src="{{asset('images/libraria-logo-v1.png')}}" alt="LIBRARIA"/>
+                                        <a href="/">
+                                            <img src="{{asset('images/favicon.ico')}}" width="30" height="30" alt="CSED GP LIBRARY"/>
+                                            CSED GP LIBRARY
                                         </a>
                                     </h1>
                                 </div>
@@ -66,9 +66,9 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="topbar-info">
-                                            <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
+                                            <a href="tel:+20-12-1053-3087"><i class="fa fa-phone"></i>+20-12-1053-3087</a>
                                             <span>/</span>
-                                            <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
+                                            <a href="mailto:support@csed.gplib.com"><i class="fa fa-envelope"></i>support@csed.gplib.com</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

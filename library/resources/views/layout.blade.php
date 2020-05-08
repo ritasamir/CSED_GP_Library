@@ -47,8 +47,9 @@
                                 <div class="navbar-header">
                                     <div class="navbar-brand">
                                         <h1>
-                                            <a href="index-2.html">
-                                                <img src="images/libraria-logo-v1.png" alt="LIBRARIA" />
+                                            <a href="/">
+                                                <img src="images/favicon.ico" width="30" height="30" alt="CSED GP LIBRARY" />
+                                                CSED GP LIBRARY
                                             </a>
                                         </h1>
                                     </div>
@@ -60,15 +61,14 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="topbar-info">
-                                                <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
+                                                <a href="tel:+20-12-1053-3087"><i class="fa fa-phone"></i>+20-12-1053-3087</a>
                                                 <span>/</span>
-                                                <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
+                                                <a href="mailto:support@csed.gplib.com"><i class="fa fa-envelope"></i>support@csed.gplib.com</a>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="topbar-links">
                                                  <div class="flex-center position-ref full-height">
-
                                                         @if (Route::has('login'))
                                                             <div class="top-right links">
                                                                 @auth
@@ -82,8 +82,7 @@
                                                                 @endauth
                                                             </div>
                                                         @endif
-
-                                                         </div>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                     <div class="dropdown-menu cart-dropdown">
@@ -194,23 +193,18 @@
                                         <a href="#" class="close"></a>
                                     </li>
                                     <li>
-                                        <a href="index-2.html">Home</a>
-                                        <ul>
-                                            <li><a href="index-2.html">Home V1</a></li>
-                                            <li><a href="home-v2.html">Home V2</a></li>
-                                            <li><a href="home-v3.html">Home V3</a></li>
-                                        </ul>
+                                        <a href="/">Home</a>
                                     </li>
-                                    <li>
-                                        <a href="books-media-list-view.html">Books &amp; Media</a>
-                                        <ul>
-                                            <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
-                                            <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
-                                            <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
-                                            <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
-                                            <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
-                                        </ul>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="books-media-list-view.html">Books &amp; Media</a>--}}
+{{--                                        <ul>--}}
+{{--                                            <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>--}}
+{{--                                            <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>--}}
+{{--                                            <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>--}}
+{{--                                            <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>--}}
+{{--                                            <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
                                     <li>
                                         <a href="news-events-list-view.html">News &amp; Events</a>
                                         <ul>
@@ -242,7 +236,7 @@
                     </nav>
                 </div>
             </div>
-        </header>
+</header>
         <!-- End: Header Section -->
 
         <!-- Start: Slider Section -->
