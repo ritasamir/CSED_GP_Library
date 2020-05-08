@@ -3,8 +3,17 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+use App\Mail\VerifiedMail;
+use App\Mail\UnverifiedMail;
+use Illuminate\Support\Facades\URL;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +26,34 @@ use App\Post;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'HomeController@index')->name('welcome');
+
+
+
+// Route::get('/verifyEmail', function () {
+//     Mail::to('sohaylamohammed734@gmail.com')->send(new VerifiedMail());
+//     return new VerifiedMail();
+// });
+
+// Route::get('/unverifyEmail', function () {
+    //    // Mail::to('sohaylamohammed734@gmail.com')->send(new VerifiedMail());
+    //    $user =  factory(User::class)->create([
+    //     'name' => 'sohayla',
+    //     'isTS' => '1',
+    //     'department' => 'csed',
+    //     'phone_number' => '01258036758',
+    //     'graduation_year' => '2020',
+    //     'national_id' => '1253',
+    // ]);
+    //     $url = URL::to('home');
+    //     return new UnverifiedMail($user,$url );
+
+// });
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/posts/{id}', 'PostsController@show');
@@ -38,9 +72,27 @@ Route::get('/pendingPostsapproving', 'PostsController@approvePost');
 Route::get('/pendingPostsdisapproving', 'PostsController@disapprovePost')->middleware('auth');
 Route::get('/pendingPostsdisapproving', 'PostsController@disapprovePost')->middleware('auth');
 Route::get('/notification', 'UserNotificationController@show')->middleware('auth');
+Route::get('/register/verify/{id}/{confirmation_code}', 'UserController@verify');
 
 Route::any('/search', 'HomeController@search');
 Auth::routes();
+
+Route::get('/admin', 'AdminController@admin')    
+    ->middleware('is_admin')    
+    ->name('admin');
+
+Route::get('/users/pending', 'AdminController@pending')    
+    ->middleware('is_admin')    
+    ->name('admin.pending');
+
+Route::POST('/users/pending/verify', 'AdminController@verify')
+    ->middleware('auth')
+    ->middleware('is_admin')    
+    ->name('admin.verify');
+
+Route::POST('/users/pending/unverify', 'AdminController@unverify')    
+    ->middleware('is_admin')    
+    ->name('admin.unverify');
 
 
 

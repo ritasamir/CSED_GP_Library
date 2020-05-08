@@ -32,6 +32,7 @@
                     <div class="blog-main-list">
                         <div class="container">
                             <h4> {{$message ?? ''}} <b> {{ $query ?? '' }} </h4>
+                            @include('layouts.errors')
                             <div class="row">
                                 <div class="blog-page grid">
                                     @foreach($posts as $post)

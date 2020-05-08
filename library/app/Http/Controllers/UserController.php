@@ -39,6 +39,27 @@ class UserController extends Controller
             'posts' => $posts,
         ]);
     }
+    public function verify($id, $confirmation_code){
+        if(!$confirmation_code) {
+           return redirect('/')->with('warning',"Sorry, you didn't activate your code.");
+        }
+        $user = User::where('id',$id)->firstOrfail();
+        if ( !$user) {
+            return redirect('/')->with('warning',"Sorry, there is somthing wrong.");
+        }
 
+        if ($user->confirmation_code != $confirmation_code) {
+            return redirect('/')->with('warning',"Sorry, confirmation code does not match.");
+        }
+        $user->verified = 1;
+        $user->confirmation_code = null;
+        $user->save();
+     //   Flash::message('You have successfully verified your account. You can now login.');
+        if(Auth::user()) {
+            Auth::logout();
+        }
+       
+        return redirect()->to('login')->with('success',"You have successfully verified your account. You can now login.");
+    }
 
 }
