@@ -170,102 +170,102 @@
 </header>
         <!-- End: Header Section -->
 
-        <!-- Start: Slider Section -->
-        <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
+    <!-- Start: Slider Section -->
+    <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
 
-            <!-- Carousel slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <figure>
-                        <img alt="Home Slide" src="images/header-slider/home-v1/header-slide.jpg"/>
-                    </figure>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h3>Online Learning Anytime, Anywhere!</h3>
-                            <h2>Discover Your Roots</h2>
-                            <p>Find researches and projects released by students from your department on all the hot topics in your field.</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="/register" class="btn btn-default">Join Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <figure>
-                        <img alt="Home Slide" src="images/header-slider/home-v2/header-slide.jpg"/>
-                    </figure>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h3>Online Learning Anytime, Anywhere!</h3>
-                            <h2>Insight About The Future</h2>
-                            <p>Find the progress so far and the next steps to be done.</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="/register" class="btn btn-default">Join Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <figure>
-                        <img alt="Home Slide" src="images/header-slider/home-v3/header-slide.jpg"/>
-                    </figure>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h3>Online Learning Anytime, Anywhere!</h3>
-                            <h2>Add Your Mark</h2>
-                            <p>Add your work, contribute in building a better future with other graduates from your department.</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="/register" class="btn btn-default">Join Us</a>
-                            </div>
+        <!-- Carousel slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <figure>
+                    <img alt="Home Slide" src="images/header-slider/home-v1/header-slide.jpg"/>
+                </figure>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Online Learning Anytime, Anywhere!</h3>
+                        <h2>Discover Your Roots</h2>
+                        <p>Find researches and projects released by students from your department on all the hot topics in your field.</p>
+                        <div class="slide-buttons hidden-sm hidden-xs">
+                            <a href="#" class="btn btn-primary">Read More</a>
+                            <a href="/register" class="btn btn-default">Join Us</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#home-v1-header-carousel" data-slide="prev"></a>
-            <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
+            <div class="item">
+                <figure>
+                    <img alt="Home Slide" src="images/header-slider/home-v2/header-slide.jpg"/>
+                </figure>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Online Learning Anytime, Anywhere!</h3>
+                        <h2>Insight About The Future</h2>
+                        <p>Find the progress so far and the next steps to be done.</p>
+                        <div class="slide-buttons hidden-sm hidden-xs">
+                            <a href="#" class="btn btn-primary">Read More</a>
+                            <a href="/register" class="btn btn-default">Join Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <figure>
+                    <img alt="Home Slide" src="images/header-slider/home-v3/header-slide.jpg"/>
+                </figure>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Online Learning Anytime, Anywhere!</h3>
+                        <h2>Add Your Mark</h2>
+                        <p>Add your work, contribute in building a better future with other graduates from your department.</p>
+                        <div class="slide-buttons hidden-sm hidden-xs">
+                            <a href="#" class="btn btn-primary">Read More</a>
+                            <a href="/register" class="btn btn-default">Join Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- End: Slider Section -->
 
-        <!-- Start: Search Section -->
-        <section class="search-filters">
-            <div class="container">
-                <div class="filter-box">
-                    <h3>What are you looking for at the library?</h3>
-                    <form action="/show_results" method="post">
-                        {{ csrf_field() }}
-                        <div class="col-md-4 col-sm-6">
-                            <div class="form-group">
-                                <label class="sr-only" for="keywords">Search by Topic or Name</label>
-                                <input class="form-control" placeholder="Search by Topic or Name" id="keyword" name="keywords" type="text">
-                            </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#home-v1-header-carousel" data-slide="prev"></a>
+        <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
+    </div>
+    <!-- End: Slider Section -->
+
+    <!-- Start: Search Section -->
+    <section class="search-filters">
+        <div class="container">
+            <div class="filter-box">
+                <h3>What are you looking for at the library?</h3>
+                <form action="/show_results" method="post">
+                    {{ csrf_field() }}
+                    <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="keywords">Search by Topic or Name</label>
+                            <input class="form-control" placeholder="Search by Topic or Name" id="keyword" name="keywords" type="text">
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="form-group">
-                                <select class="option" id="year" name="year" >
-                                    <option value="">Search by Year</option>
-                                    <?php
-                                    $years = array_combine(range(date("Y"), 1950), range(date("Y"), 1950));?>
-                                    @foreach($years as $year)
-                                        <option value="{{ $year }}">{{ $year }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <select class="option" id="year" name="year" >
+                                <option value="">Search by Year</option>
+                                <?php
+                                $years = array_combine(range(date("Y"), 1950), range(date("Y"), 1950));?>
+                                @foreach($years as $year)
+                                    <option value="{{ $year }}">{{ $year }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="col-md-2 col-sm-6">
-                            <div class="form-group">
-                                <input class="form-control" type="submit" value="Search">
-                            </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                            <input class="form-control" type="submit" value="Search">
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
-        </section>
-        <!-- End: Search Section -->
+        </div>
+    </section>
+    <!-- End: Search Section -->
 
 <!-- Start: Welcome Section -->
         <section class="welcome-section">
@@ -812,7 +812,6 @@
                                 <li><a href="news-events-list-view.html">News &amp; Events</a></li>
                                 <li><a href="/home">Projects</a></li>
                                 <li><a href="/search">Services</a></li>
-                                <li><a href="#">Research</a></li>
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div>

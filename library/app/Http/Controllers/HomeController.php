@@ -55,9 +55,8 @@ class HomeController extends Controller
     public function show_results(Request $request) {
         $keyword = $request->input('keywords');
         $year = $request->input('year');
-        $users_ids = User::select('id')->where([['name','LIKE','%'.$keyword.'%'], ['id', '!=', auth()->id()]])->get();
-        if($users_ids) {
-            $posts = array();
+        $users_ids = User::select('id')->where('name','LIKE','%'.$keyword.'%')->get();
+        if(count($users_ids) > 0) {
             if(isset($year)) {
                 $posts = Post::whereIn('user_id', $users_ids)->where('created_at', 'LIKE', $year.'%')->get();
             } else {
@@ -70,7 +69,6 @@ class HomeController extends Controller
             } else {
                 $posts = Post::where('title', 'LIKE', '%'.$keyword .'%')
                     ->orWhere('abstract', 'LIKE', '%'.$keyword .'%')->get();
-
             }
         }
         if(count($posts) > 0)

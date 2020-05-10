@@ -82,43 +82,39 @@
                                                            href="{{ route('register') }}">{{ __('Register') }}</a>
                                                     @endif
                                                 @else
-
-                                                    <ul>
-
-
-                                                        <li class="nav-item dropdown">
-
-                                                            <a id="navbarDropdown" class="nav-link dropdown-toggle"
-                                                               href="#" role="button" data-toggle="dropdown"
-                                                               aria-haspopup="true"
-                                                               aria-expanded="false" v-pre>
-                                                                {{ Auth::user()->name }} <span class="caret"></span>
+                                                <ul>
+                                                    <li class="nav-item dropdown">
+                                                        <a id="navbarDropdown" class="nav-link dropdown-toggle"
+                                                           href="#" role="button" data-toggle="dropdown"
+                                                           aria-haspopup="true"
+                                                           aria-expanded="false" v-pre>
+                                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                        </a>
+                                                        <div style="background-color:black; padding-left: 10px "
+                                                             class="dropdown-menu dropdown-menu-right "
+                                                             aria-labelledby="navbarDropdown">
+                                                            <a class="dropdown-item fa fa-btn fa-user"
+                                                               href="../profile">{{ __('    My Profile') }}</a>
+                                                            <br>
+                                                            <a class="dropdown-item fa fa-btn fa-user"
+                                                               href="/notification">
+                                                                Notifications
                                                             </a>
-                                                            <div style="background-color:black; padding-left: 10px "
-                                                                 class="dropdown-menu dropdown-menu-right "
-                                                                 aria-labelledby="navbarDropdown">
-                                                                <a class="dropdown-item fa fa-btn fa-user"
-                                                                   href="../profile">{{ __('    My Profile') }}</a>
-                                                                <br>
-                                                                <a class="dropdown-item fa fa-btn fa-user"
-                                                                   href="/notification">
-                                                                    Notifications
-                                                                </a>
-                                                                <br>
-                                                                <a class="dropdown-item fa fa-btn fa-sign-out"
-                                                                   href="{{ route('logout') }}"
-                                                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                                    {{ __('Logout') }}
-                                                                </a>
-                                                                <form id="logout-form" action="{{ route('logout') }}"
-                                                                      method="POST" style="display: none;">
-                                                                    @csrf
-                                                                </form>
+                                                            <br>
+                                                            <a class="dropdown-item fa fa-btn fa-sign-out"
+                                                               href="{{ route('logout') }}"
+                                                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                                {{ __('Logout') }}
+                                                            </a>
+                                                            <form id="logout-form" action="{{ route('logout') }}"
+                                                                  method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
 
-                                                            </div>
-                                                        </li>
-                                                        @endguest
-                                                    </ul>
+                                                        </div>
+                                                    </li>
+                                                    @endguest
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -126,49 +122,41 @@
                             </div>
                         </div>
                     </div>
-                    <div class='row'>
-                        <div class="navbar-collapse hidden-sm hidden-xs">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown active">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="/home">Home</a>
-                                </li>
-
-                                <li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="blog.html">Blog Grid View</a></li>
-                                        <li><a href="blog-detail.html">Blog Detail</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown active">
+                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="/home">Home</a>
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">Projects</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/search">Search on a topic</a></li>
+                                <li><a href="/home">Recent</a></li>
                             </ul>
-                        </div>
-                    </div>
-
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/search">Search</a></li>
+                                <li><a href="/posts">Upload Project</a></li>
+                                <li><a href="/profile">View Profile</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </nav>
             </div>
         </div>
     </header>
     `<!-- End: Header Section -->
-
-    <!-- Start: Page Banner -->
-<!-- <div class="container">
-                <div class="banner-header">
-                <h2>@yield ('title')</h2>
-                <span class="underline center"></span>
-                <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
-            </div> -->
-<!-- <div class="breadcrumb">
-                <li><a  href="{{ url('/') }}"> HOME</a></li>
-            </div>
-        </div> -->`
 </section>
 
 <div id="app">
-    <main class="py-4">
+{{--    <main class="py-4">--}}
         @yield('content')
-    </main>
+{{--    </main>--}}
 </div>
 
 <!-- Start: Social Network -->
@@ -177,35 +165,49 @@
         <div class="center-content">
             <h2 class="section-title">Follow Us</h2>
             <span class="underline center"></span>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="lead"> </p>
         </div>
         <ul>
             <li>
                 <a class="facebook" href="#" target="_blank">
-                    <span>
-                        <i class="fa fa-facebook-f"></i>
-                    </span>
+                            <span>
+                                <i class="fa fa-facebook-f"></i>
+                            </span>
                 </a>
             </li>
             <li>
                 <a class="twitter" href="#" target="_blank">
-                    <span>
-                        <i class="fa fa-twitter"></i>
-                    </span>
+                            <span>
+                                <i class="fa fa-twitter"></i>
+                            </span>
                 </a>
             </li>
             <li>
                 <a class="google" href="#" target="_blank">
-                    <span>
-                        <i class="fa fa-google-plus"></i>
-                    </span>
+                            <span>
+                                <i class="fa fa-google-plus"></i>
+                            </span>
                 </a>
             </li>
             <li>
                 <a class="rss" href="#" target="_blank">
-                    <span>
-                        <i class="fa fa-rss"></i>
-                    </span>
+                            <span>
+                                <i class="fa fa-rss"></i>
+                            </span>
+                </a>
+            </li>
+            <li>
+                <a class="linkedin" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                </a>
+            </li>
+            <li>
+                <a class="youtube" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-youtube"></i>
+                            </span>
                 </a>
             </li>
         </ul>
@@ -220,77 +222,21 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 widget-container">
                     <div id="text-2" class="widget widget_text">
-                        <h3 class="footer-widget-title">About Libraria</h3>
+                        <h3 class="footer-widget-title">About CSED GP LIBRARY</h3>
                         <span class="underline left"></span>
                         <div class="textwidget">
-                            It is a long established fact that a reader will be distracted by the readable content of a
-                            page when looking.
+                            Your gate for all the contribution established by Alexandria University CS graduates.
                         </div>
                         <address>
                             <div class="info">
-                                <i class="fa fa-location-arrow"></i>
-                                <span>21 King Street, Melbourne, Victoria 3000 Australia</span>
-                            </div>
-                            <div class="info">
                                 <i class="fa fa-envelope"></i>
-                                <span><a href="mailto:support@libraria.com">support@libraria.com</a></span>
+                                <span><a href="mailto:support@csed.gplib.com">support@csed.gplib.com</a></span>
                             </div>
                             <div class="info">
                                 <i class="fa fa-phone"></i>
-                                <span><a href="tel:012-345-6789">+ 012-345-6789</a></span>
+                                <span><a href="tel:012-345-6789">+20-12-1053-3087</a></span>
                             </div>
                         </address>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6 widget-container">
-                    <div id="nav_menu-2" class="widget widget_nav_menu">
-                        <h3 class="footer-widget-title">Quick Links</h3>
-                        <span class="underline left"></span>
-                        <div class="menu-quick-links-container">
-                            <ul id="menu-quick-links" class="menu">
-                                <li><a href="#">Library News</a></li>
-                                <li><a href="#">History</a></li>
-                                <li><a href="#">Meet Our Staff</a></li>
-                                <li><a href="#">Board of Trustees</a></li>
-                                <li><a href="#">Budget</a></li>
-                                <li><a href="#">Annual Report</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
-                <div class="col-md-2 col-sm-6 widget-container">
-                    <div id="text-4" class="widget widget_text">
-                        <h3 class="footer-widget-title">Timing</h3>
-                        <span class="underline left"></span>
-                        <div class="timming-text-widget">
-                            <time datetime="2017-02-13">Mon - Thu: 9 am - 9 pm</time>
-                            <time datetime="2017-02-13">Fri: 9 am - 6 pm</time>
-                            <time datetime="2017-02-13">Sat: 9 am - 5 pm</time>
-                            <time datetime="2017-02-13">Sun: 1 pm - 6 pm</time>
-                            <ul>
-                                <li><a href="#">Closings</a></li>
-                                <li><a href="#">Branches</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 widget-container">
-                    <div class="widget twitter-widget">
-                        <h3 class="footer-widget-title">Latest Tweets</h3>
-                        <span class="underline left"></span>
-                        <div id="twitter-feed">
-                            <ul>
-                                <li>
-                                    <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste
-                                        natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
-                                </li>
-                                <li>
-                                    <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste
-                                        natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -299,19 +245,13 @@
     <div class="sub-footer">
         <div class="container">
             <div class="row">
-                <div class="footer-text col-md-3">
-                    <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
-                </div>
                 <div class="col-md-9 pull-right">
                     <ul>
-                        <li><a href="index-2.html">Home</a></li>
-                        <li><a href="books-media-list-view.html">Books &amp; Media</a></li>
+                        <li><a href="/welcome">Welcome Page</a></li>
                         <li><a href="news-events-list-view.html">News &amp; Events</a></li>
-                        <li><a href="#">Kids &amp; Teens</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="#">Research</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/home">Projects</a></li>
+                        <li><a href="/search">Services</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>

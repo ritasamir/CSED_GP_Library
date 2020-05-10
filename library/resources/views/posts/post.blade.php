@@ -6,21 +6,21 @@
     </p>
 
     <div class="entry" style="display: inline-block;">
-        <h2 style="color:chocolate;padding-bottom:15px;">Abstract</h2>
+        <h2 style="color:#ff7236;padding-bottom:15px;">Abstract</h2>
         <p style="width:auto;color:dimgray;">{{$post->abstract}}</p>
-        <h2 style="color:chocolate;padding-bottom:15px;">Fields</h2>
+        <h2 style="color:#ff7236;padding-bottom:15px;">Fields</h2>
         <ul>
             @foreach($post->fields as $field)
                 <li><a href="#" style="color:dimgray;">{{$field-> fname}}</a></li>
             @endforeach
         </ul>
         <p class="links">
-            <a href="https://{{$post->doc_url}}" target="_blank" rel="noopener noreferrer" style="background-color:chocolate;border-color:dimgray;" class="button">
+            <a href="{{$post->doc_url}}" target="_blank" rel="noopener noreferrer" style="background-color:#ff7236;border-color:dimgray;" class="button">
             Read Full Document
             </a>
             @if($post->approved)
             &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="/comments/{{$post->id}}" style="background-color:chocolate;border-color:dimgray;" class="button">Comments</a>
+            <a href="/comments/{{$post->id}}" style="background-color:#ff7236;border-color:dimgray;" class="button">Comments</a>
             @endif
         </p>
     </div>
