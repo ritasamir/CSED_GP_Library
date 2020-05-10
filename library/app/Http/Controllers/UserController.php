@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,5 +41,14 @@ class UserController extends Controller
         ]);
     }
 
+    public function visit($id)
+    {
+        $user = User::where('id', $id)->firstOrFail();
+        $posts = $user->posts()->where('approved', 1)->latest()->get();
+        return view('users.profile', [
+            'user' => $user,
+            'posts' => $posts,
+        ]);
+    }
 
 }

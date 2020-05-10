@@ -32,6 +32,8 @@ Route::get('comments/{id}/create', 'CommentsController@create');
 Route::post('comments/{id}/create', 'CommentsController@store');
 
 Route::get('/profile', 'UserController@show');
+Route::get('/profile/{id}', 'UserController@visit');
+
 Route::post('/profile', 'UserController@update_avatar');
 Route::get('/pendingPosts', 'PostsController@showUnapproved');
 Route::get('/pendingPostsapproving', 'PostsController@approvePost');
@@ -40,6 +42,8 @@ Route::get('/pendingPostsdisapproving', 'PostsController@disapprovePost')->middl
 Route::get('/notification', 'UserNotificationController@show')->middleware('auth');
 
 Route::any('/search', 'HomeController@search');
+Route::any('/show_results', 'HomeController@show_results');
+
 Auth::routes();
 
 
