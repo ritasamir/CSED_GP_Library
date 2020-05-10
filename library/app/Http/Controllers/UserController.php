@@ -41,14 +41,4 @@ class UserController extends Controller
         ]);
     }
 
-    public function visit($id)
-    {
-        $user = User::where('id', $id)->firstOrFail();
-        $posts = $user->posts()->where('approved', 1)->latest()->get();
-        return view('users.profile', [
-            'user' => $user,
-            'posts' => $posts,
-        ]);
-    }
-
 }

@@ -32,8 +32,6 @@ Route::get('comments/{id}/create', 'CommentsController@create');
 Route::post('comments/{id}/create', 'CommentsController@store');
 
 Route::get('/profile', 'UserController@show');
-Route::get('/profile/{id}', 'UserController@visit');
-
 Route::post('/profile', 'UserController@update_avatar');
 Route::get('/pendingPosts', 'PostsController@showUnapproved');
 Route::get('/pendingPostsapproving', 'PostsController@approvePost');
