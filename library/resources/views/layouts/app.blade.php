@@ -132,15 +132,22 @@
                                 <li class="dropdown active">
                                     <a data-toggle="dropdown" class="dropdown-toggle disabled" href="/home">Home</a>
                                 </li>
+                                @if(Auth::user())
+                                @if(Auth::user()->isAdmin())
+                                <li class="dropdown active">
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="/admin">Administration</a>
+                                </li>
+                                @endif
+                                @endif
 
-                                <li class="dropdown">
+                                <!-- <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="blog.html">Blog Grid View</a></li>
                                         <li><a href="blog-detail.html">Blog Detail</a></li>
                                     </ul>
-                                </li>
-                                <li><a href="services.html">Services</a></li>
+                                </li> -->
+                                <!-- <li><a href="services.html">Services</a></li> -->
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

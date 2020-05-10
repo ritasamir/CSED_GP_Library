@@ -12,6 +12,7 @@ Signin
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+                        @include('layouts.errors')
 
                         <div class="form-group row">
                             <label style="margin-top: 100px; for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
