@@ -10,7 +10,7 @@
                 <div class="row " style="padding-top: 20px">
 
                     <div class="col-sm-3">
-                        <img src="/images/{{$post->avatar}}" style="border-radius: 7px;" onerror=this.src="images/blog/cs.jpg">
+                        <img src="uploads/images/{{$post->avatar}}" style="border-radius: 50%" alt="project">
                     </div>
 
                     <div class="col-sm-9">
@@ -35,9 +35,11 @@
                     </div>
                 </div>
             @endforeach
-        <p class="links" style="position:absolute;left:50%;">
-               <a href="/posts" class="button" style="background-color:#ff7236;color:black;">Add new Post</a>
-        </p>
+            @if(\Illuminate\Support\Facades\Auth::user()->id == $user->id)
+                <p class="links" style="position:absolute;left:50%;">
+                    <a href="/posts" class="button" style="background-color:chocolate;color:black;">Add new Post</a>
+                </p>
+            @endif
         </div>
     </div>
 

@@ -123,7 +123,7 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Graduation Year') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="graduation_year" name="graduation_year">
+                                    <select class="form-control select2-selection--single" id="graduation_year" name="graduation_year">
                                         <?php
                                         $years = array_combine(range(date("Y") + 4, 1950), range(date("Y") + 4, 1950));?>
                                         @foreach($years as $year)
@@ -134,6 +134,7 @@
 
                                 </div>
                             </div>
+                            <br>
                             <div class="form-group row">
                                 <label for="department"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Department') }}</label>
@@ -178,4 +179,11 @@
 @endsection
 @section('title')
     Signup
+@endsection
+@section('script')
+<script type="text/javascript">
+    $('.select2-selection--single').select2({
+        placeholder :"here"
+    });
+</script>
 @endsection

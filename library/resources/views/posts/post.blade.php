@@ -1,9 +1,9 @@
 @extends('layouts.post')
 @section('postcontent')
-<div class="post">
-    <p>
-    <h1 style="color:saddlebrown;">{{$post->title}}</h1>
-    </p>
+    <div class="post">
+        <p>
+        <h1 style="color:saddlebrown;">{{$post->title}}</h1>
+        </p>
 
     <div class="entry" style="display: inline-block;">
         <h2 style="color:#ff7236;padding-bottom:15px;">Abstract</h2>
@@ -22,12 +22,13 @@
             &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="/comments/{{$post->id}}" style="background-color:#ff7236;border-color:dimgray;" class="button">Comments</a>
             @endif
+            <?php $user = \Illuminate\Support\Facades\Auth::user()?>
+                @if(($user->isTS and in_array($user->id, $users_id)) or ($user->id == $post->user_id and !($post->approved)))
+                    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="/posts/{{$post->id}}/edit" style="color: #f0ad4e" class="button">edit post</a>
+                @endif
         </p>
-    </div>
-    <p>
-        <small style="float:right;">{{$post->created_at}}</small>
-    </p>
 
-</div>
+    </div>
 
 @endsection

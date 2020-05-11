@@ -7,13 +7,14 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use JavaScript;
 
 class UserController extends Controller
 {
     //
-    public function show()
+    public function show($id)
     {
-        $user = Auth::user();
+        $user = User::where('id', $id)->firstOrFail();
         $posts = $user->posts()->where('approved', 1)->latest()->get();
         return view('users.profile', [
             'user' => $user,
@@ -21,10 +22,10 @@ class UserController extends Controller
         ]);
     }
 
-    public function update_avatar(Request $request)
+    public function update_avatar(Request $request, $id)
     {
 
-        $user = Auth::user();
+        $user = User::where('id', $id)->firstOrFail();
         if ($request->hasFile('profile_img')) {
             $avatar = $request->file('profile_img');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
@@ -34,11 +35,19 @@ class UserController extends Controller
             $user->save();
 
         }
-        $posts = $user->posts()->latest()->get();
-        return view('users.profile', [
-            'user' => $user,
-            'posts' => $posts,
+        return $this->show($id);
+    }
+
+    public function editProfile()
+    {
+        $user = Auth::user();
+        Javascript::put([
+            'graduation_year' => $user->graduation_year
         ]);
+        return view('users.edit', [
+            'user' => $user,
+
+        ], compact('graduation_year'));
     }
     public function verify($id, $confirmation_code)
     {
@@ -63,5 +72,15 @@ class UserController extends Controller
 
         return redirect()->to('login')->with('success',"You have successfully verified your account. You can now login.");
     }
-
+    public function update(Request $request)
+    {
+        $input = $request->all();
+        $user = Auth::user();
+        $user->fill($input)->all();
+        $user->save();
+        $posts = $user->posts()->where('approved', 1)->latest()->get();
+        return redirect()->route('user.profile', $user->id);
+    }
 }
+
+

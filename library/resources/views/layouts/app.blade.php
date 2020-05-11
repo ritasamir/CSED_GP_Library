@@ -20,22 +20,12 @@
         rel="stylesheet"/>
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
 
-    <!-- Mobile Menu -->
-    <link href="{{ asset('css/mmenu.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('css/mmenu.positioning.css') }}" rel="stylesheet" type="text/css"/>
 
     <!-- Stylesheet -->
     <link href="{{ asset('style.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-{{--    <script src="{{ asset('js/html5shiv.min.js') }}"></script>--}}
-{{--    <script src="{{ asset('js/respond.min.js') }}"></script>--}}
 
-
-<![endif]-->
 </head>
 
 
@@ -268,55 +258,55 @@
 <!-- End: Footer -->
 
 <!-- jQuery Latest Version 1.x -->
-<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
 
 <!-- jQuery UI -->
-<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-ui.min.js')}}"></script>
 
 <!-- jQuery Easing -->
-<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery.easing.1.3.js')}}"></script>
 
 <!-- Bootstrap -->
-<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 
 <!-- Mobile Menu -->
-<script type="text/javascript" src="../js/mmenu.min.js"></script>
+<script type="text/javascript" src="{{asset('js/mmenu.min.js')}}"></script>
 
 <!-- Harvey - State manager for media queries -->
-<script type="text/javascript" src="../js/harvey.min.js"></script>
+<script type="text/javascript" src="{{asset('js/harvey.min.js')}}"></script>
 
 <!-- Waypoints - Load Elements on View -->
-<script type="text/javascript" src="../js/waypoints.min.js"></script>
+<script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script>
 
 <!-- Facts Counter -->
-<script type="text/javascript" src="../js/facts.counter.min.js"></script>
+<script type="text/javascript" src="{{asset('js/facts.counter.min.js')}}"></script>
 
 <!-- MixItUp - Category Filter -->
-<script type="text/javascript" src="../js/mixitup.min.js"></script>
+<script type="text/javascript" src="{{asset('js/mixitup.min.js')}}"></script>
 
 <!-- Owl Carousel -->
-<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
 
 <!-- Accordion -->
-<script type="text/javascript" src="../js/accordion.min.js"></script>
+<script type="text/javascript" src="{{asset('js/accordion.min.js')}}"></script>
 
 <!-- Responsive Tabs -->
-<script type="text/javascript" src="../js/responsive.tabs.min.js"></script>
+<script type="text/javascript" src="{{asset('js/responsive.tabs.min.js')}}"></script>
 
 <!-- Responsive Table -->
-<script type="text/javascript" src="../js/responsive.table.min.js"></script>
+<script type="text/javascript" src="{{asset('js/responsive.table.min.js')}}"></script>
 
 <!-- Masonry -->
-<script type="text/javascript" src="../js/masonry.min.js"></script>
+<script type="text/javascript" src="{{asset('js/masonry.min.js')}}"></script>
 
 <!-- Carousel Swipe -->
-<script type="text/javascript" src="../js/carousel.swipe.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/carousel.swipe.min.js') }}"></script>
 
 <!-- bxSlider -->
-<script type="text/javascript" src="../js/bxslider.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/bxslider.min.js') }}"></script>
 
 <!-- Custom Scripts -->
-<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 @yield('script')

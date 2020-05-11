@@ -100,8 +100,32 @@
                 </form>
             </div>
         </div>
-
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addField" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header" style="background: #f0ad4e">
+                    <h4 class="modal-title" style=" color: whitesmoke;">New Field</h4>
+                </div>            <!-- Modal Body -->
+                <div class="modal-body">
+                    <form method="POST" action="/fields">
+                        @csrf
+                        <div class="container">
+                            <label for="fname">Field Name</label>
+                            <input style="margin: 20px" id="fname" name="fname" />
+                            <br>
+                            <br>
+                            <input type="submit" value="Add">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('title')
     ADD NEW POST
@@ -145,20 +169,21 @@
             function dynamic_fieldC(numberC) {
 
                 html = '<br>'
-                html = '<div class="row collaborator-row">\n' +
+                html += '<div class="row collaborator-row">\n' +
                     '                                <div class="col-md-4">\n' +
                     '                                    <input id="collaborators" type="text" class="form-control"\n' +
                     ' name="collaborators[]"  autocomplete="collaborators">' +
                     '                                </div>'
                 if (numberC > 1) {
                     html += '<div class="col-md-2">\n' +
-                        '                                    <a href="#" class="btn btn-xs btn-danger btn-remove-colab ">Remove</a>\n' +
+                        '                                    <a href="#" class="btn  btn-danger btn-remove-colab ">Remove</a>\n' +
                         '                                </div>\n' +
                         '                            </div>';
                     $('.collaborators-select').append(html);
 
                 } else {
-                    html += '<a href="#" class="btn" style="color: #fff; background-color: #ff7236; border-color: #ff601c;">Add more Collaborators</a>\n' +'\n' +
+                    html += '                                <a href="#" class="btn  btn-info btn-add-more-colab">Add more Collaborators</a>\n' +
+                        '\n' +
                         '                            </div>';
                     $('.collaborators-select').html(html);
                 }

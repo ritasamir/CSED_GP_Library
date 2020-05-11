@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCitationsTable extends Migration
+class CreateCitationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateCitationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('citations', function (Blueprint $table) {
+        Schema::create('citation', function (Blueprint $table) {
             $table->integer('post_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
-        Schema::table('citations', function (Blueprint $table) {
+        Schema::table('citation', function (Blueprint $table) {
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');;
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->primary(array('post_id', 'user_id'));
 
         });
-
     }
 
     /**
@@ -34,6 +33,6 @@ class CreateCitationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('citations');
+        Schema::dropIfExists('citation');
     }
 }

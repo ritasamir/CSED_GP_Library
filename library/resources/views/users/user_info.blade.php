@@ -33,17 +33,20 @@
                     <div class="row">
                         <div class="col-sm-3 img-wrapper">
 
-                            <img src="images/avatars/{{$user->profile_img}}" style="border-radius: 50%"
+                            <img src="/uploads/avatars/{{$user->profile_img}}" style="border-radius: 50%"
                                  class="thumbnail center-block img-responsive" height="150" width="150"
-                                 onerror=this.src="images/avatar/img1.png">
-                            <form enctype="multipart/form-data" action="/profile" method="POST">
-                                <span class="center-block btn btn-dark-gray btn-file" style="width: 100%;">Change Profile Picture <input type="file"
-                                                                                                    name="profile_img"></span>
-                                {{--                                    <input type="file"  name="profile_img">--}}
-                                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                <input type="submit" style="margin-top: 5px; height: 30px;font-size: x-small"
-                                       class="center-block btn btn-sm btn-secondary">
-                            </form>
+                                 alt="profile_img">
+                            @if($user->id == \Illuminate\Support\Facades\Auth::user()->id)
+                                <form enctype="multipart/form-data"
+                                      action="/profile/{{\Illuminate\Support\Facades\Auth::user()->id}}" method="POST">
+                                    @csrf
+                                    <span class="center-block btn btn-dark-gray btn-file">Browse <input type="file"
+                                                                                                        name="profile_img"></span>
+                                    {{--                                    <input type="file"  name="profile_img">--}}
+                                    <input type="submit" style="margin-top: 5px; height: 30px;font-size: x-small"
+                                           class="center-block btn btn-sm btn-secondary">
+                                </form>
+                            @endif
 
                         </div>
                         <div class="col-sm-9">
@@ -61,11 +64,30 @@
                                     style="padding-right: 10px">Graduation
                                     Year :</strong> {{$user->graduation_year}}</div>
                             <div class="row" style="padding-left: 25px;padding-bottom: 10px"><strong
-                                    style="padding-right: 10px">Role :</strong> {{($user->isTS) ? "Teaching Staff" : "Student"}}</div>
+                                    style="padding-right: 10px">Role
+                                    :</strong> {{($user->isTS) ? "Teaching Staff" : "Student"}}</div>
+                            @if(\Illuminate\Support\Facades\Auth::user()->id == $user->id)
+                                <div class="row" style="padding-left: 25px;padding-bottom: 10px"><a
+                                        href="{{ route('userInfo.edit') }}"
+                                        style="background-color: #ff7236;text-overflow: ellipsis;float: right;margin-left: 10px"
+                                        class="button">edit profile</a></div>
+
+                            @endif
                         </div>
-{{--                        @if($user->isTS)--}}
-                        <a href="{{ url('/pendingPosts') }}"style="background-color: #ff7236;text-overflow: ellipsis;float: right" class="button">Pending Posts</a>
-{{--                        @endif                        --}}
+
+                        @if(\Illuminate\Support\Facades\Auth::user()->id == $user->id)
+                            @if(!$user->isTS)
+
+                                <a href="{{ route('posts.disapproved') }}"
+                                   style="background-color: #ff7236;text-overflow: ellipsis;float: right;margin-left: 10px"
+                                   class="button">Posts
+                                    Disapproved</a>
+
+                            @endif
+                            <a href="{{ url('/pendingPosts') }}"
+                               style="background-color: #ff7236;text-overflow: ellipsis;float: right" class="button">Pending
+                                Posts</a>
+                        @endif
                     </div>
 
                 </div>
