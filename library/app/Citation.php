@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Citation extends Model
 {
-    protected $table = 'citation';
+    protected $table = 'citations';
     protected $fillable = [
         'user_id', 'post_id'
     ];

@@ -205,9 +205,9 @@ class PostsController extends Controller
         if ($user) {
             $post = Post::where('id', $id)->firstOrFail();
             $fields = DB::select('SELECT * from fields');
-            $collabs = DB::table('users')->join('citation', function ($join) use ($post) {
-                $join->on('users.id', '=', 'citation.user_id');
-                $join->on('citation.post_id', '=', DB::raw($post->id));
+            $collabs = DB::table('users')->join('citations', function ($join) use ($post) {
+                $join->on('users.id', '=', 'citations.user_id');
+                $join->on('citations.post_id', '=', DB::raw($post->id));
             })->get();
             return view('posts.edit', [
                 'post' => $post,
@@ -262,15 +262,15 @@ class PostsController extends Controller
             array_push($old_ids, $citation->user_id);
         }
         $removeList = array_diff($old_ids, $user_ids);
-        DB::table('citation')->whereIn('user_id', $removeList)->where('post_id', '=', $id)->delete();
+        DB::table('citations')->whereIn('user_id', $removeList)->where('post_id', '=', $id)->delete();
         $addList = array_diff($user_ids, $old_ids);
         foreach ($addList as $user_id) {
             Citation::create([
                 'post_id' => $post->id,
                 'user_id' => $user_id
             ]);
-        }
-
+        }   
+        $post->doc_url = $request->input('link');
         $post->save();
 
         return redirect()->route('posts', [$post]);

@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="col-sm-9">
-                        <a href="posts/{{$post->id}}"><h3>{{$post->title}}</h3></a>
+                        <a href="{{route('posts', $post->id)}}"><h3>{{$post->title}}</h3></a>
                         <div style="padding-top: 5px;padding-bottom: 5px">created at : {{$post->created_at}}</div>
                         <div class="container " style="
                         padding: 10px; max-width: 700px;  border: 1px solid #ff7236 ;border-radius: 7px;">
@@ -35,10 +35,13 @@
                     </div>
                 </div>
             @endforeach
-            @if(\Illuminate\Support\Facades\Auth::user()->id == $user->id)
-                <p class="links" style="position:absolute;left:50%;">
-                    <a href="/posts" class="button" style="background-color:chocolate;color:black;">Add new Post</a>
-                </p>
+            @if(Auth::user())
+
+                @if(\Illuminate\Support\Facades\Auth::user()->id == $user->id)
+                    <p class="links" style="position:absolute;left:50%;">
+                        <a href="/posts" class="button" style="background-color:chocolate;color:black;">Add new Post</a>
+                    </p>
+                @endif
             @endif
         </div>
     </div>

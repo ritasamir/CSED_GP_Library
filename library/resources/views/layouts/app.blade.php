@@ -84,7 +84,7 @@
                                                              class="dropdown-menu dropdown-menu-right "
                                                              aria-labelledby="navbarDropdown">
                                                             <a class="dropdown-item fa fa-btn fa-user"
-                                                               href="../profile">{{ __('    My Profile') }}</a>
+                                                               href="../profile/{{ Auth::user()->id}}">{{ __('    My Profile') }}</a>
                                                             <br>
                                                             <a class="dropdown-item fa fa-btn fa-user"
                                                                href="/notification">
@@ -124,9 +124,6 @@
                             @endif
                         @endif
                         <li class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
-                        </li>
-                        <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">Projects</a>
                             <ul class="dropdown-menu">
                                 <li><a href="/search">Search on a topic</a></li>
@@ -141,7 +138,6 @@
                                 <li><a href="/profile">View Profile</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -245,10 +241,8 @@
                 <div class="col-md-9 pull-right">
                     <ul>
                         <li><a href="/welcome">Welcome Page</a></li>
-                        <li><a href="news-events-list-view.html">News &amp; Events</a></li>
                         <li><a href="/home">Projects</a></li>
                         <li><a href="/search">Services</a></li>
-                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>

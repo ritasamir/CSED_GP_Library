@@ -2,8 +2,8 @@
 
 @section('content')
 
-        <div class="entry-content" >
-            <strong style="color: #ff7236;">No Pending Users!</strong>
+        <div class="center-content" >
+            <strong style="color:#ff7236;font-size:45px;">No Pending Users!</strong>
         </div>
 
 

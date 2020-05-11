@@ -98,4 +98,10 @@
         </div>
     </main>
 </div>
+
+@endsection
+@section('script')
+<script type="text/javascript">
+$(".option").select2();
+</script> 
 @endsection

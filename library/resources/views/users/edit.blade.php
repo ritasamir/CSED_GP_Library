@@ -28,7 +28,7 @@
                         {{Form::hidden('_method','PUT')}}
 
 
-                        <div class="col-md-6">
+                        <div class="col-md">
                             <div class="form-group row">
                                 <label style="margin-top: 100px;" for="name"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -108,88 +108,13 @@
 
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-primary">
+                                        {{ __('Update profile') }}
+                            </button>
                         </div>
-                        <div class="col-md-6">
-
-                            <div class="form-group row">
-                                <label style="margin-top: 100px;" for="isTS"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Teaching Staff') }}</label>
-
-                                <div class="col-md-6">
-                                    @if($user->isTS)
-                                        <label><input id="radio1" type="radio"
-                                                      style="margin-top: 100px;margin-right: 10px"
-                                                      checked name="radio" value="1">Yes</label>
-                                        <label style="margin-left: 30px"><input id="radio2" type="radio"
-                                                                                style="margin-top: 100px;margin-right: 10px"
-                                                                                name="radio" value="0"> No</label>
-                                    @else
-                                        <label><input id="radio1" type="radio"
-                                                      style="margin-top: 100px;margin-right: 10px"
-                                                      name="radio" value="1">Yes</label>
-                                        <label style="margin-left: 30px"><input id="radio2" type="radio"
-                                                                                style="margin-top: 100px;margin-right: 10px"
-                                                                                checked name="radio" value="0">
-                                            No</label>
-                                    @endif
-                                </div>
-                            </div>
-                            <br>
-                            <div class="form-group row">
-                                <label for="graduation_year"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Graduation Year') }}</label>
-
-                                <div class="col-md-6">
-                                    <select class="form-control select2-selection--single" id="graduation_year"
-                                            name="graduation_year">
-                                        <?php
-                                        $years = array_combine(range(date("Y") + 4, 1950), range(date("Y") + 4, 1950));?>
-                                        @foreach($years as $year)
-
-                                            <option value="{{ $year }}">{{ $year }}</option>
-
-                                        @endforeach
-
-                                    </select>
-
-                                </div>
-                            </div>
-                            <br>
-                            <div class="form-group row">
-                                <label for="department"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Department') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="department" type="text"
-                                           class="form-control @error('department') is-invalid @enderror"
-                                           name="department"
-                                           value="{{ $user->department }}" required autocomplete="department" autofocus>
-
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="national_id"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('National ID') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="national_id"
-                                           class="form-control @error('national_id') is-invalid @enderror"
-                                           value="{{ $user->national_id }}" required autocomplete="national_id"
-                                           autofocus type="text" style="margin-right: 10px" name="national_id"/>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4" style="margin-top: 50px">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Update profile') }}
-                                </button>
-                            </div>
-                        </div>
+                  
                     </form>
+                        
                 </div>
             </div>
 

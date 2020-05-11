@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <div id="wrapper">
         <div id="page">
             <div id="page-bgtop">
@@ -13,7 +12,7 @@
                         <!-- end #content -->
 
                         <div id="sidebar" style="float:left;">
-                            <ul>
+                            <ul>    
                                 <li>
                                     <img src="/uploads/images/{{$post->avatar}}"
                                          style="width:260px; height:200px;padding-left:9px;">

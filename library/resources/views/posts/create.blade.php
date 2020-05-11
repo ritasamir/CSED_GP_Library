@@ -82,11 +82,18 @@
                         <label for="fields" style="font-size: large"
                                class="col-md-4 col-form-label text-md-right">{{ __('Fields') }}</label>
                         <div class="col-md-6">
+                        <div class="col-md-8">
                             <select hidden class="js-example-basic-multiple" id="fields" name="fields[]" style="width: 100%" multiple="multiple">
                                 @foreach($fields as $field)
                                     <option value="{{ $field->id }}">{{ $field->fname }}</option>
                                 @endforeach
                             </select>
+                            </div>
+                            <div class="col-md-1">
+<button class="edit-button btn-sm" style="margin-left: 20px" data-toggle="modal" data-target="#addField">
+Add new Field
+</button>
+</div> 
                         </div>
                     </div>
                     <br>
@@ -115,7 +122,7 @@
                         <div class="container">
                             <label for="fname">Field Name</label>
                             <input style="margin: 20px" id="fname" name="fname" />
-                            <br>
+                            <br>    
                             <br>
                             <input type="submit" value="Add">
                         </div>
@@ -125,7 +132,7 @@
             </div>
         </div>
     </div>
-
+    
 @endsection
 @section('title')
     ADD NEW POST
@@ -182,7 +189,7 @@
                     $('.collaborators-select').append(html);
 
                 } else {
-                    html += '                                <a href="#" class="btn  btn-info btn-add-more-colab">Add more Collaborators</a>\n' +
+                    html += '                             <a href="#" style="color: #fff; background-color: #ff7236; border-color: #ff601c;"  class="btn  btn-info btn-add-more-colab">Add more Collaborators</a>\n' +
                         '\n' +
                         '                            </div>';
                     $('.collaborators-select').html(html);
@@ -205,4 +212,5 @@
 
         });
     </script>
+
 @endsection
