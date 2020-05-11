@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->text('abstract');
             $table->text('doc_url');
             $table->boolean('approved');
+            $table->boolean('disapproved')->default('0');
             $table->timestamps();
         });
 

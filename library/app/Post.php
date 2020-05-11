@@ -33,7 +33,7 @@ class Post extends Model
     public function addComment($body){
         if (! $this->followers()->syncWithoutDetaching([auth()->user()->id])) {
             $this->followers()->attach(auth()->user()->id);
-        }        
+        }
         $this->comments()->create([
             'user_id'=>Auth::user()->getAuthIdentifier(),
             'body'=>$body

@@ -9,7 +9,7 @@
                 <div class="row " style="padding-top: 20px">
 
                     <div class="col-sm-3">
-                        <img src="images/posts/{{$post->avatar}}" style="border-radius: 50%" alt="project">
+                        <img src="uploads/images/{{$post->avatar}}" style="border-radius: 50%" alt="project">
                     </div>
 
                     <div class="col-sm-9">

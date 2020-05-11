@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-       
+
 
             <h1 class="center-content" style="margin-top: 50px">Add new Post</h1>
 
-            <div class="card-body">
+            <div class="card-body" style="margin: 50px">
                 <form method="POST" action="/posts" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row" style="margin-top: 150px;">
@@ -76,8 +76,8 @@
                             <div class="row ">
                             </div>
                         </div>
-                        @error('collabrators')
-                            <span class="invalid-feedback" role="alert">
+                        @error('collaborators')
+                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
@@ -88,12 +88,20 @@
                         <label for="fields"
                                class="col-md-4 col-form-label text-md-right">{{ __('Fields') }}</label>
                         <div class="col-md-6">
-                            <select class="js-example-basic-multiple" multiple id="fields" name="fields[]">
-                                @foreach($fields as $field)
-                                    <option value="{{ $field->id }}">{{ $field->fname }}</option>
-                                @endforeach
+                            <div class="col-md-8">
+                                <select class="form-control js-example-basic-multiple" multiple id="fields"
+                                        name="fields[]">
+                                    @foreach($fields as $field)
+                                        <option value="{{ $field->id }}">{{ $field->fname }}</option>
+                                    @endforeach
 
-                            </select>
+                                </select>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="edit-button btn-sm" style="margin-left: 20px" data-toggle="modal" data-target="#addField">
+                                    Add new Field
+                                </button>
+                            </div>
 
 
                         </div>
@@ -109,8 +117,32 @@
                 </form>
             </div>
         </div>
-
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addField" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header" style="background: #f0ad4e">
+                    <h4 class="modal-title" style=" color: whitesmoke;">New Field</h4>
+                </div>            <!-- Modal Body -->
+                <div class="modal-body">
+                    <form method="POST" action="/fields">
+                        @csrf
+                        <div class="container">
+                            <label for="fname">Field Name</label>
+                            <input style="margin: 20px" id="fname" name="fname" />
+                            <br>
+                            <br>
+                            <input type="submit" value="Add">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('title')
     ADD NEW POST
@@ -154,20 +186,20 @@
             function dynamic_fieldC(numberC) {
 
                 html = '<br>'
-                html = '<div class="row collaborator-row">\n' +
+                html += '<div class="row collaborator-row">\n' +
                     '                                <div class="col-md-4">\n' +
                     '                                    <input id="collaborators" type="text" class="form-control"\n' +
                     ' name="collaborators[]"  autocomplete="collaborators">' +
                     '                                </div>'
                 if (numberC > 1) {
                     html += '<div class="col-md-2">\n' +
-                        '                                    <a href="#" class="btn btn-xs btn-danger btn-remove-colab ">Remove</a>\n' +
+                        '                                    <a href="#" class="btn  btn-danger btn-remove-colab ">Remove</a>\n' +
                         '                                </div>\n' +
                         '                            </div>';
                     $('.collaborators-select').append(html);
 
                 } else {
-                    html += '                                <a href="#" class="btn btn-xs btn-info btn-add-more-colab">Add more Collaborators</a>\n' +
+                    html += '                                <a href="#" class="btn  btn-info btn-add-more-colab">Add more Collaborators</a>\n' +
                         '\n' +
                         '                            </div>';
                     $('.collaborators-select').html(html);

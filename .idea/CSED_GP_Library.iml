@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/library/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/library/vendor/intervention/image" />
+      <excludeFolder url="file://$MODULE_DIR$/library/vendor/laracasts/utilities" />
       <excludeFolder url="file://$MODULE_DIR$/library/vendor/laravelcollective/html" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -15,5 +16,6 @@
     <orderEntry type="library" name="select2" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="bootstrap-select" level="application" />
+    <orderEntry type="library" name="jquery.bxslider" level="application" />
   </component>
 </module>
