@@ -28,7 +28,7 @@ class UserController extends Controller
         if ($request->hasFile('profile_img')) {
             $avatar = $request->file('profile_img');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));
+            Image::make($avatar)->resize(300, 300)->save(public_path('/images/avatars/' . $filename));
 
             $user->profile_img = $filename;
             $user->save();

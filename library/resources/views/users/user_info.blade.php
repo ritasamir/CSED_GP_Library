@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-sm-3 img-wrapper">
 
-                            <img src="uploads/avatars/{{$user->profile_img}}" style="border-radius: 50%"
+                            <img src="images/avatars/{{$user->profile_img}}" style="border-radius: 50%"
                                  class="thumbnail center-block img-responsive" height="150" width="150"
                                  onerror=this.src="images/avatar/img1.png">
                             <form enctype="multipart/form-data" action="/profile" method="POST">

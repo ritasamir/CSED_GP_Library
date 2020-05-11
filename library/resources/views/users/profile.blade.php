@@ -10,7 +10,7 @@
                 <div class="row " style="padding-top: 20px">
 
                     <div class="col-sm-3">
-                        <img src="uploads/images/{{$post->avatar}}" style="border-radius: 7px;" onerror=this.src="images/blog/cs.jpg">
+                        <img src="/images/{{$post->avatar}}" style="border-radius: 7px;" onerror=this.src="images/blog/cs.jpg">
                     </div>
 
                     <div class="col-sm-9">
