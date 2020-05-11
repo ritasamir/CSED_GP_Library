@@ -139,7 +139,7 @@ class PostsController extends Controller
             if($user->isTS) {
                 $availableTS = 1;
             }
-           
+
             $user_ids =  array();
             array_push($user_ids, $user->id);
             foreach ($collaborators as $collaborator) {
@@ -169,25 +169,25 @@ class PostsController extends Controller
                     }
                 }
 
-                $post->fields()->attach($fields);      
+                $post->fields()->attach($fields);
                 if ($post->approved == '1')
                    return $this->show($post->id);
                 else {
                    return $this->showUnapproved();
-                }                
-            } 
-           
+                }
+            }
+
         } else {
             Post::destroy($post->id);
             return redirect('/posts')
             ->withInput($request->input())
-            ->withErrors('Error in inputs');        
+            ->withErrors('Error in inputs');
         }
         Post::destroy($post->id);
         return redirect('/posts')
         ->withInput($request->input())
-        ->withErrors(['collabrators' => 'ERROR: User doesn not exist!']);
- 
+        ->withErrors(['collabrators' => 'ERROR: User does not exist!']);
+
     }
 
     public function edit(Post $post)

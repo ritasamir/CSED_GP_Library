@@ -59,7 +59,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/posts/{id}', 'PostsController@show');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts', 'PostsController@create');
-Route::get('/posts/unapproved', 'PostsController@showUnapprovedRegular');
+Route::get('/posts/unapproved', 'PostsController@showUnapproved');
 
 Route::get('/comments/{id}', 'CommentsController@show');
 Route::get('comments/{id}/create', 'CommentsController@create');
@@ -75,6 +75,8 @@ Route::get('/notification', 'UserNotificationController@show')->middleware('auth
 Route::get('/register/verify/{id}/{confirmation_code}', 'UserController@verify');
 
 Route::any('/search', 'HomeController@search');
+Route::any('/show_results', 'HomeController@show_results');
+
 Auth::routes();
 
 Route::get('/admin', 'AdminController@admin')    

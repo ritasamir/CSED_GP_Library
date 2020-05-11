@@ -1,8 +1,10 @@
+/.idea/
 /node_modules
 /public/hot
 /public/storage
 /storage/*.key
 /vendor
+.env.example
 .env
 .env.example
 .env.backup

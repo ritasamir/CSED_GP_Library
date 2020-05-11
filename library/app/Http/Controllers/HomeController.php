@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Postfield;
 use App\User;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Input\Input;
+use function MongoDB\BSON\toJSON;
+use function Sodium\add;
 
 class HomeController extends Controller
 {
@@ -46,5 +50,33 @@ class HomeController extends Controller
         else return view ('/home', [
                 'posts' => $posts
             ])->withMessage('No Details found. Try to search again !');
+    }
+
+    public function show_results(Request $request) {
+        $keyword = $request->input('keywords');
+        $year = $request->input('year');
+        $users_ids = User::select('id')->where('name','LIKE','%'.$keyword.'%')->get();
+        if(count($users_ids) > 0) {
+            if(isset($year)) {
+                $posts = Post::whereIn('user_id', $users_ids)->where('created_at', 'LIKE', $year.'%')->get();
+            } else {
+                $posts = Post::whereIn('user_id', $users_ids)->get();
+            }
+        } else {
+            if (isset($year)) {
+                $posts = Post::where([['title', 'LIKE', '%'.$keyword .'%'], ['created_at', 'LIKE', $year.'%']])
+                    ->orWhere([['abstract', 'LIKE', '%'.$keyword .'%'], ['created_at', 'LIKE', $year.'%']])->get();
+            } else {
+                $posts = Post::where('title', 'LIKE', '%'.$keyword .'%')
+                    ->orWhere('abstract', 'LIKE', '%'.$keyword .'%')->get();
+            }
+        }
+        if(count($posts) > 0)
+            return view('/home', [
+                'posts' => $posts
+            ])->withMessage('The Search results for your query!')->withQuery ( $keyword );
+        else return view ('/home', [
+            'posts' => $posts
+        ])->withMessage('No Details found. Try to search again !');
     }
 }
