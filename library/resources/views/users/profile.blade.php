@@ -41,7 +41,7 @@
                 </div>
             @endforeach
         <p class="links" style="position:absolute;left:50%;">
-               <a href="/posts/create"class="button" style="background-color:chocolate;color:black;">Add new Post</a>
+               <a href="/posts" class="button" style="background-color:chocolate;color:black;">Add new Post</a>
         </p>
         </div>
     </div>

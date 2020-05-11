@@ -19,7 +19,7 @@
             Read Full Document
             </a>
             @if($post->approved)
-            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;            
+            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="/comments/{{$post->id}}" style="background-color:chocolate;border-color:dimgray;" class="button">Comments</a>
             @endif
         </p>

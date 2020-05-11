@@ -1,27 +1,28 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="container">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+       
 
+            <h1 class="center-content" style="margin-top: 50px">Add new Post</h1>
 
-                <div class="card-body">
-                    <form method="POST" action="/posts">
-                        @csrf
-                        <!-- <img src="uploads/avatars/{{$user->profile_img}}" style="border-radius: 50%"
-                                 class="thumbnail center-block img-responsive" height="150" width="150"
-                                 alt="profile_img"> -->
-                        <div class="form-group row">
-                            <span class="center-block btn btn-dark-gray btn-file">Browse <input type="file"
-                                                                                                        name="avatar"></span>
-                                    {{--                                    <input type="file"  name="avatar">--}}
-                        </div>
-                        <div class="form-group row">
-                            <label style="margin-top: 100px;" for="title"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
-
+            <div class="card-body">
+                <form method="POST" action="/posts" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group row" style="margin-top: 150px;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="center-block btn btn-dark-gray btn-file">Browse <input type="file"
+                                                                                                    name="avatar"></span>
+                            </div>
                             <div class="col-md-6">
-                                <input style="margin-top: 100px;" id="title" type="text"
+
+                                <label for="title"
+                                       class="col-form-label text-md-right"
+                                       style="font-size: large">{{ __('Title') }}</label>
+
+                                <input id="title" type="text"
                                        class="form-control @error('title') is-invalid @enderror" name="title"
                                        value="{{ old('title') }}" required autocomplete="title" autofocus/>
 
@@ -33,91 +34,162 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="abstract"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Abstract') }}</label>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="abstract"
+                               class="col-md-4 col-form-label text-md-right">{{ __('Abstract') }}</label>
 
-                            <div class="col-md-6">
-                                <textarea id="abstract" class="form-control @error('abstract') is-invalid @enderror"
-                                       name="abstract" value="{{ old('abstract') }}" required autocomplete="abstract">
+                        <textarea id="abstract" class="form-control @error('abstract') is-invalid @enderror"
+                                  name="abstract" required
+                                  style="height: 200px"
+                                  autocomplete="abstract">
                                 </textarea>
-                                @error('abstract')
-                                <span class="invalid-feedback" role="alert">
+                        @error('abstract')
+                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="link"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Link to Document') }}</label>
-                            <div class="col-md-6">
-                                <input type="url" name="url" id="link"placeholder="https://example.com" pattern="https://.*" size="30"
-                                       class="form-control @error('link') is-invalid @enderror" name="link"
-                                       required autocomplete="off">
-                                @error('link')
-                                <span class="invalid-feedback" role="alert">
+                        @enderror
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="link"
+                               class="col-md-4 col-form-label text-md-right">{{ __('Link to Document') }}</label>
+                        <div class="col-md-6">
+                            <input type="url" id="link" placeholder="https://example.com"
+                                   pattern="https://.*" size="30"
+                                   class="form-control @error('link') is-invalid @enderror" name="link"
+                                   required autocomplete="off">
+                            @error('link')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                            @enderror
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row selects-collaborators">
+                        <label for="collaborators"
+                               class="col-md-4 col-form-label text-md-right">{{ __('Collaborators') }}</label>
+
+                        <div class="col-md-6 collaborators-select">
+                            <div class="row ">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="collabrators"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Collabrators') }}</label>
+                        @error('collabrators')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group row">
+                        <label for="fields"
+                               class="col-md-4 col-form-label text-md-right">{{ __('Fields') }}</label>
+                        <div class="col-md-6">
+                            <select class="js-example-basic-multiple" multiple id="fields" name="fields[]">
+                                @foreach($fields as $field)
+                                    <option value="{{ $field->id }}">{{ $field->fname }}</option>
+                                @endforeach
 
-                            <div class="col-md-6">
-                                <input id="collabrators" type="text" class="form-control"
-                                       name="collabrators[]" required autocomplete="collabrators">
-                            </div>
+                            </select>
+
+
                         </div>
-                        <div class="form-group row">
-                            <label for="supervisors"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Supervisors') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="supervisors" type="text" class="form-control"
-                                       name="supervisors[]" required autocomplete="supervisors">
-                            </div>
+                    </div>
+                    <br>
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Add Post') }}
+                            </button>
                         </div>
-                        <!-- <div class="form-group row">
-                            <label for="fields"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Fields') }}</label>
-
-                            <div class="col-md-6">
-                                <select class="form-control select2-multi" multiple="multiple" name="fields[]">
-                        
-                                    @foreach($fields as $field)
-                                        <option value="{{ $field->fname }}">{{ $field->fname }}</option>
-                                    @endforeach
-
-                                </select>
-
-                            </div>
-                        </div> -->
-                        <div class="form-group row">
-                            <label for="fields"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Fields') }}</label>
-
-                            <div class="col-md-6">
-                            <input type="text" name="fields" pattern="^[a-zA-Z\s,]+$" placeholder="e.g Computer Vision, NLP" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Add Post') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
+
     </div>
 @endsection
 @section('title')
     ADD NEW POST
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $.fn.scrollPosReaload = function () {
+            if (localStorage) {
+                var posReader = localStorage["posStorage"];
+                if (posReader) {
+                    $(window).scrollTop(posReader);
+                    localStorage.removeItem("posStorage");
+                }
+                $(this).click(function (e) {
+                    localStorage["posStorage"] = $(window).scrollTop();
+                });
+
+                return true;
+            }
+
+            return false;
+        }
+
+        function insertAfter(referenceNode, newNode) {
+            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+        }
+
+        $(document).ready(function () {
+
+            var countC = 1;
+
+            dynamic_fieldC(countC);
+
+
+            function dynamic_fieldC(numberC) {
+
+                html = '<br>'
+                html = '<div class="row collaborator-row">\n' +
+                    '                                <div class="col-md-4">\n' +
+                    '                                    <input id="collaborators" type="text" class="form-control"\n' +
+                    ' name="collaborators[]"  autocomplete="collaborators">' +
+                    '                                </div>'
+                if (numberC > 1) {
+                    html += '<div class="col-md-2">\n' +
+                        '                                    <a href="#" class="btn btn-xs btn-danger btn-remove-colab ">Remove</a>\n' +
+                        '                                </div>\n' +
+                        '                            </div>';
+                    $('.collaborators-select').append(html);
+
+                } else {
+                    html += '                                <a href="#" class="btn btn-xs btn-info btn-add-more-colab">Add more Collaborators</a>\n' +
+                        '\n' +
+                        '                            </div>';
+                    $('.collaborators-select').html(html);
+                }
+
+            }
+
+
+            $(document).on('click', '.btn-add-more-colab', function () {
+                countC++;
+                dynamic_fieldC(countC);
+            });
+
+
+            $(document).on('click', '.btn-remove-colab', function () {
+                countC--;
+                $(this).closest(".collaborator-row").remove();
+            });
+
+
+        });
+    </script>
+
+    </script>
 @endsection

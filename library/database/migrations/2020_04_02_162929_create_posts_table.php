@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title');
-            $table->string('avatar');
+            $table->string('avatar')->default('post1.png');
             $table->text('abstract');
             $table->text('doc_url');
             $table->boolean('approved');

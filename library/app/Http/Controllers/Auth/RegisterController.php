@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -23,6 +25,23 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+     /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
 
     /**
      * Where to redirect users after registration.
@@ -65,7 +84,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dump($data);
+        //dd($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -75,7 +94,8 @@ class RegisterController extends Controller
             'graduation_year' => $data['graduation_year'],
             'national_id' =>$data['national_id'],
             'isTS' => $data['radio'],
-
+            'type' => User::DEFAULT_TYPE,
         ]);
+
     }
 }
