@@ -31,7 +31,7 @@ class CommentsController extends Controller
             ]);
         }
         return redirect('/login');
-    
+
     }
 
     public function store($postId)
@@ -50,6 +50,6 @@ class CommentsController extends Controller
             $status = 'addComment';
             $follower->notify(new commentNotification($status,$postId,Auth::user()->name));
         }
-        return $this->show($postId);
+        return redirect('/comments/'.$postId);
     }
 }

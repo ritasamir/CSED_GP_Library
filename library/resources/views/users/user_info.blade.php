@@ -3,7 +3,6 @@
     .btn-file {
         position: relative;
         overflow: hidden;
-        border-radius: 30%;
         width: 70px;
         height: 35px;
         font-size: x-small;
@@ -38,7 +37,7 @@
                                  class="thumbnail center-block img-responsive" height="150" width="150"
                                  alt="profile_img">
                             <form enctype="multipart/form-data" action="/profile" method="POST">
-                                <span class="center-block btn btn-dark-gray btn-file">Browse <input type="file"
+                                <span class="center-block btn btn-dark-gray btn-file" style="width: 100%;">Change Profile Picture <input type="file"
                                                                                                     name="profile_img"></span>
                                 {{--                                    <input type="file"  name="profile_img">--}}
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -65,14 +64,12 @@
                                     style="padding-right: 10px">Role :</strong> {{($user->isTS) ? "Teaching Staff" : "Student"}}</div>
                         </div>
 {{--                        @if($user->isTS)--}}
-                        <a href="{{ url('/pendingPosts') }}"style="background-color: #ff7236;text-overflow: ellipsis;float: right" class="button">Pending Posts</a>
+                        <a href="{{ url('/posts/unapproved') }}"style="background-color: #ff7236;text-overflow: ellipsis;float: right" class="button">Pending Posts</a>
 {{--                        @endif                        --}}
                     </div>
 
                 </div>
                 <hr>
-
-
             </div>
 
         </div>

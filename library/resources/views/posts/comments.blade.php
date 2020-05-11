@@ -1,7 +1,7 @@
 @extends('layouts.post')
 @section('postcontent')
     <div>
-        <a href="/posts/{{$post->id}}"  style="float:left;color:chocolate;"><i class="fa fa-arrow-left"
+        <a href="/posts/{{$post->id}}"  style="float:left;color:#ff7236;"><i class="fa fa-arrow-left"
                                                               style="font-size:30px;padding-right:8px;"></i></a>
         <p>
           <h1 style="color:saddlebrown;">{{$post->title}}</h1>
@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-3">
                             <p>
-                                <a class="float-left" href="#" style="padding-left:8px;">
+                                <a class="float-left" href="/profile/{{$comment->user->id}}" style="padding-left:8px;">
                                     <strong> {{$comment->user->name}}</strong>
                                 </a>
                             </p>
@@ -37,7 +37,7 @@
             </div>
     @endforeach
     <p class="links">
-      <a href="/comments/{{$post->id}}/create" class="button" style="background-color:chocolate;color:black;">Add new Comment</a>
+      <a href="/comments/{{$post->id}}/create" class="button" style="background-color:#ff7236;color:black;" >Add new Comment</a>
     </p>
     </div>
 @endsection

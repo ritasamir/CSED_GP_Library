@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/posts/{id}', 'PostsController@show');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts', 'PostsController@create');
-Route::get('/posts/unapproved', 'PostsController@showUnapprovedRegular');
+Route::get('/posts/unapproved', 'PostsController@showUnapproved');
 
 Route::get('/comments/{id}', 'CommentsController@show');
 Route::get('comments/{id}/create', 'CommentsController@create');

@@ -10,14 +10,14 @@
                 <div class="row " style="padding-top: 20px">
 
                     <div class="col-sm-3">
-                        <img src="images/posts/{{$post->avatar}}" style="border-radius: 50%" alt="project">
+                        <img src="images/posts/{{$post->avatar}}" style="border-radius: 7px;" onerror=this.src="images/blog/cs.jpg">
                     </div>
 
                     <div class="col-sm-9">
                         <a href="posts/{{$post->id}}"><h3>{{$post->title}}</h3></a>
                         <div style="padding-top: 5px;padding-bottom: 5px">created at : {{$post->created_at}}</div>
                         <div class="container " style="
-                        padding: 10px; max-width: 700px;  border: 1px solid #ff7236 ;border-radius: 10px;">
+                        padding: 10px; max-width: 700px;  border: 1px solid #ff7236 ;border-radius: 7px;">
 
                             <div
                                 style="height:35px;overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;">{{$post->abstract}}</div>
@@ -31,17 +31,12 @@
                                     {{$contributer->user->name}}
                                 </div>
                             @endforeach
-
-
                         </div>
-
                     </div>
-
-
                 </div>
             @endforeach
         <p class="links" style="position:absolute;left:50%;">
-               <a href="/posts" class="button" style="background-color:chocolate;color:black;">Add new Post</a>
+               <a href="/posts" class="button" style="background-color:#ff7236;color:black;">Add new Post</a>
         </p>
         </div>
     </div>

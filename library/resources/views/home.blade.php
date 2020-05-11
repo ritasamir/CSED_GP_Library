@@ -45,7 +45,7 @@
 
         <div class="blog-main-list">
             <div class="container">
-                <h4 style="font-family: FontAwesome; color:#ff7236"> {{$message ?? ''}} <b></b> {{ $query ?? ''}} </h4>
+                <h4 style="font-family: FontAwesome; color:saddlebrown"> {{$message ?? ''}} <b></b> {{ $query ?? ''}} </h4>
                 <div class="row">
                     <div class="blog-page grid">
                         @foreach($posts as $post)
