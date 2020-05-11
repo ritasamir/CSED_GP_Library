@@ -2,9 +2,9 @@
 
 @section('content')
 
-        <div class="error-info center-content" >
-            <small style="color: #ff7236;">No Pending Users!</small>                                                                  
-        </div> 
-                                
+        <div class="entry-content" >
+            <strong style="color: #ff7236;">No Pending Users!</strong>
+        </div>
+
 
 @endsection

@@ -35,7 +35,7 @@
 
                             <img src="uploads/avatars/{{$user->profile_img}}" style="border-radius: 50%"
                                  class="thumbnail center-block img-responsive" height="150" width="150"
-                                 alt="profile_img">
+                                 onerror=this.src="images/avatar/img1.png">
                             <form enctype="multipart/form-data" action="/profile" method="POST">
                                 <span class="center-block btn btn-dark-gray btn-file" style="width: 100%;">Change Profile Picture <input type="file"
                                                                                                     name="profile_img"></span>
@@ -64,7 +64,7 @@
                                     style="padding-right: 10px">Role :</strong> {{($user->isTS) ? "Teaching Staff" : "Student"}}</div>
                         </div>
 {{--                        @if($user->isTS)--}}
-                        <a href="{{ url('/posts/unapproved') }}"style="background-color: #ff7236;text-overflow: ellipsis;float: right" class="button">Pending Posts</a>
+                        <a href="{{ url('/pendingPosts') }}"style="background-color: #ff7236;text-overflow: ellipsis;float: right" class="button">Pending Posts</a>
 {{--                        @endif                        --}}
                     </div>
 

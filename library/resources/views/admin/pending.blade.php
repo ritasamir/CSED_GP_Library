@@ -9,7 +9,7 @@
             @foreach($users as $user)
 
                     <div class="col-sm-3">
-                        <img src="images/posts/{{$user->profile_img}}" style="border-radius: 50%" alt="image">
+                        <img src="uploads/avatars/{{$user->profile_img}}" style="border-radius: 50%" alt="image">
                     </div>
 
                     <div class="col-sm-9">
@@ -20,34 +20,34 @@
                                 style="overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;">
                                 <ul>
                                     <li>
-                                        <label>Email</label> 
+                                        <label>Email</label>
                                         <span>{{$user->email}}</span>
                                     </li>
                                     <li>
-                                        <label>Department</label> 
+                                        <label>Department</label>
                                         <span>{{$user->department}}</span>
                                     </li>
                                     <li>
-                                        <label>Graduation Year</label> 
+                                        <label>Graduation Year</label>
                                         <span>{{$user->graduation_year}}</span>
                                     </li>
                                     <li>
                                         @if($user->isTS=='1')
-                                            <label>Position</label> 
+                                            <label>Position</label>
                                             <span>Teaching Staff</span>
                                         @else
-                                            <label>Position</label> 
+                                            <label>Position</label>
                                             <span>Student</span>
                                         @endif
                                     </li>
                                     <li>
-                                        <label>Nationa ID</label> 
+                                        <label>Nationa ID</label>
                                         <span>{{$user->national_id}}</span>
                                     </li>
                                     <li>
-                                        <label>Phone Number</label> 
+                                        <label>Phone Number</label>
                                         <span>{{$user->phone_number}}</span>
-                                    </li>                                    
+                                    </li>
                                 </ul>
                             </div>
 

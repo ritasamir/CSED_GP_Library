@@ -79,21 +79,21 @@ Route::any('/show_results', 'HomeController@show_results');
 
 Auth::routes();
 
-Route::get('/admin', 'AdminController@admin')    
-    ->middleware('is_admin')    
+Route::get('/admin', 'AdminController@admin')
+    ->middleware('is_admin')
     ->name('admin');
 
-Route::get('/users/pending', 'AdminController@pending')    
-    ->middleware('is_admin')    
+Route::get('/users/pending', 'AdminController@pending')
+    ->middleware('is_admin')
     ->name('admin.pending');
 
-Route::POST('/users/pending/verify', 'AdminController@verify')
+Route::any('/users/pending/verify', 'AdminController@verify')
     ->middleware('auth')
-    ->middleware('is_admin')    
+    ->middleware('is_admin')
     ->name('admin.verify');
 
-Route::POST('/users/pending/unverify', 'AdminController@unverify')    
-    ->middleware('is_admin')    
+Route::any('/users/pending/unverify', 'AdminController@unverify')
+    ->middleware('is_admin')
     ->name('admin.unverify');
 
 

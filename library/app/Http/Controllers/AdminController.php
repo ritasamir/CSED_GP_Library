@@ -61,8 +61,8 @@ class AdminController extends Controller
         $id = $request->input('id');
         $url =  URL::to('register');
         $user =  User::where('id', $id)->firstOrfail();
-        Mail::to('trial.soh5797@gmail.com')->send(new UnverifiedMail($user, $url));
-        //Mail::to($user->email)->send(new VerifiedMail($user, $confirmation_code, $url));
+//        Mail::to('trial.soh5797@gmail.com')->send(new UnverifiedMail($user, $url));
+        Mail::to($user->email)->send(new VerifiedMail($user, $confirmation_code, $url));
         //TODO : send emails to user
         $user->delete();
         return redirect()->back();

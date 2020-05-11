@@ -152,7 +152,8 @@ Released   : 20130121
                                             @if($citation->user->isTS == 1)
                                                 <li>
                                                     <img src="/uploads/avatars/{{$citation->user->profile_img}}"
-                                                        style="width:30px; height:30px; float:left; border-radius:50%;align:middle;  ">
+                                                        style="width:30px; height:30px; float:left; border-radius:50%;align:middle;"
+                                                    onerror=this.src="images/avatars/img1.png">
                                                     <a href="#"
                                                     style="font-size: 15px;padding-left:5px;"><strong> {{$citation->user->name}} </strong>
                                                     </a>
@@ -168,7 +169,8 @@ Released   : 20130121
                                             @if($citation->user->isTS == 0)
                                                 <li>
                                                     <img src="/uploads/avatars/{{$citation->user->profile_img}}"
-                                                        style="width:30px; height:30px; float:left; border-radius:50%;align:middle;">
+                                                        style="width:30px; height:30px; float:left; border-radius:50%;align:middle;"
+                                                         onerror=this.src="images/avatars/img1.png">
                                                     <a href="#"
                                                     style="font-size: 15px;padding-left:5px;"><strong> {{$citation->user->name}} </strong>
                                                     </a>

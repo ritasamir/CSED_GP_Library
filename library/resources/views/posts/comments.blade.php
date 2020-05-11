@@ -17,7 +17,8 @@
                         <div>
                             <img src="/uploads/avatars/{{$comment->user->profile_img}}"
                                  class="img img-rounded img-fluid"
-                                 style="width:30px; height:30px; float:left; border-radius:50%;align:middle;  "/>
+                                 style="width:30px; height:30px; float:left; border-radius:50%;align:middle;  "
+                            onerror=this.src="images/avatars/img1.png">
                         </div>
                         <div class="col-md-3">
                             <p>
